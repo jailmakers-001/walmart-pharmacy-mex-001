@@ -1,0 +1,175 @@
+@import "~ngx-toastr/toastr";
+@import "~@angular/material/theming";
+@import "theme.components.scss";
+@include mat-core();
+
+/* Custom walmart group brand SCSS themes */
+// http://mcg.mbitson.com
+$md-walmart: (
+    50 : #1a75cf,
+    100 : #f47b20,
+    contrast: (
+        50 : #ffffff,
+        100 : #ffffff,
+    )
+);
+$md-superama: (
+    50 : #007AC2,
+    100 : #E19637,
+    contrast: (
+        50 : #ffffff,
+        100 : #ffffff,
+    )
+);
+$md-bodega-aurrera: (
+    50 : #3FAE2A,
+    100 : #FFD100,
+    contrast: (
+        50 : #ffffff,
+        100 : #000000,
+    )
+);
+$md-sams-club: (
+    50 : #004587,
+    100 : #95C11F,
+    contrast: (
+        50 : #ffffff,
+        100 : #ffffff,
+    )
+);
+/* Custom walmart group brand SCSS themes */
+
+
+// Default theme for sif
+$sif-primary: mat-palette($mat-blue, 700);
+$sif-accent: mat-palette($mat-yellow, A100);
+$sif-warn: mat-palette($mat-red);
+$sif-theme: mat-light-theme($sif-primary, $sif-accent, $sif-warn);
+
+@include angular-material-theme($sif-theme);
+@include sif-theme($sif-theme);
+
+.theme-walmart {
+  $walmart-primary: mat-palette($md-walmart, 50);
+  $walmart-accent: mat-palette($md-walmart, 100);
+  $walmart-theme: mat-light-theme($walmart-primary, $walmart-accent);
+  @include sif-background-walmart;
+  @include sif-theme($walmart-theme);
+  @include angular-material-theme($walmart-theme);
+}
+.theme-superama {
+  $superama-primary: mat-palette($md-superama, 50);
+  $superama-accent: mat-palette($md-superama, 100);
+  $superama-theme: mat-light-theme($superama-primary, $superama-accent);
+  @include sif-background-superama;
+  @include angular-material-theme($superama-theme);
+  @include sif-theme($superama-theme);
+}
+.theme-bodega-aurrera {
+  $bodega-aurrera-primary: mat-palette($md-bodega-aurrera, 50);
+  $bodega-aurrera-accent: mat-palette($md-bodega-aurrera, 100);
+  $bodega-aurrera-theme: mat-light-theme($bodega-aurrera-primary, $bodega-aurrera-accent);
+  @include sif-background-bodega-aurrera;
+  @include sif-font-aurrera;
+  @include angular-material-theme($bodega-aurrera-theme);
+  @include sif-theme($bodega-aurrera-theme);
+}
+.theme-sams-club {
+  $sams-club-primary: mat-palette($md-sams-club, 50);
+  $sams-club-accent: mat-palette($md-sams-club, 100);
+  $sams-club-theme: mat-light-theme($sams-club-primary, $sams-club-accent);
+  @include sif-background-sams-club;
+  @include angular-material-theme($sams-club-theme);
+  @include sif-theme($sams-club-theme);
+}
+.mat-form-field {
+  width: 100%;
+}
+.toast-container.toast-top-full-width .ngx-toastr {
+  width: 100% !important;
+  padding: 15px 15px 15px 15px;
+}
+
+.toast-warning {
+  background-image: none;
+  background-color: #FFE464;
+  .inner-message, .toast-close-button {
+    color: black;
+  }
+}
+.toast-success {
+  background-image: none;
+  background-color: #66c455;
+}
+.toast-error {
+  background-image: none;
+  background-color: #e95c5d;
+}
+.toast-message {
+  text-align: center;
+  .inner-message {
+    margin: 0px;
+    margin-top: 10px;
+  }
+}
+.px-10 {
+  padding-left: 6rem !important;
+  padding-right: 6rem !important;
+}
+.grey300 {
+  background-color: #f6f6f6;
+}
+.mat-dialog-container {
+  position: relative;
+  [mat-icon-dialog-close]{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    cursor: pointer;
+    z-index: 1;
+  }
+}
+
+.mat-full-container {
+  .mat-dialog-container {
+    padding: 0;
+  }
+}
+h1 {
+  font-size: 30pt !important;
+}
+h2 {
+  font-size: 24pt !important;
+}
+h3{
+  font-size: 18pt !important;
+}
+h4 {
+  font-size: 16pt !important;
+}
+h5 {
+  font-size: 14pt !important;
+}
+h6 {
+  font-size: 12pt !important;
+}
+.xy-center {
+  position: relative;
+  top: 40%;
+  left: 35%;
+}
+.alert p {
+  margin: 0;
+}
+.alert-fixed {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+.mat-mini-fab[disabled]:not([class*="mat-elevation-z"]) {
+  background-color: white;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}

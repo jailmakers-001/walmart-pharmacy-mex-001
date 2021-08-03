@@ -1,0 +1,31 @@
+$walmart-accent: #1A75CF;
+img.logo{
+    width: 312px;
+    height: 140px;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+}
+
+.login-help-link{
+    color: $walmart-accent;
+    font-weight: 500;
+}
+.subtitle{
+    font-size: 24px !important;
+    color: #414141;
+}
+.subfix-icon{
+    font-size: 16px;
+    color: #767676;
+}
+.subfix-icon.active{
+    color: $walmart-accent;
+}
+.title-welcome{
+    font-size: 24px !important;
+    font-weight: 500;
+    color: #1A75CF;
+}
+.determinant-input{
+    font-size: 14px;
+}

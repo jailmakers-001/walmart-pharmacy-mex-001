@@ -1,0 +1,67 @@
+<div class="mb-5 mt-4 list-view">
+    <table class="table table-borderless">
+        <thead [class]="currentTheme">
+            <tr class="mt-4 mb-4 table-header-products-container">
+                <th scope="col" class="text-center">Producto</th>
+                <th scope="col" class="text-center">Upc</th>
+                <th scope="col" class="text-center">Descripción</th>
+                <th scope="col" class="text-center">Laboratorio</th>
+                <th scope="col" class="text-center">Categoría</th>
+                <th scope="col" class="text-center">Disponible</th>
+                <th scope="col" class="text-center">Precio</th>
+                <th scope="col" class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of products; odd as isOdd" 
+                class="item-row"
+                [ngClass]="{ 'stripped-table': isOdd }">
+                <th scope="row">
+                    <img default [src]="item.image" loading="lazy" alt="Logo">
+                </th>
+                <td class="item-text text-center">{{item.upc}}</td>
+                <td class="item-text description">{{item.description}}</td>
+                <td class="item-text laboratory d-flex justify-content-center align-items-end">{{item.laboratory}}</td>
+                <td class="item-text text-center">{{item.medicineTypeDescription}}</td>
+                <td class="item-text text-center">{{item.stock || 'N/D'}}</td>
+                <td class="item-text price text-center">{{item.price | price}}</td>
+                <td class="text-center buttons d-flex justify-content-around">
+                    <div class="actions">
+                        <button 
+                            (click)="reportNegate(item)" 
+                            class="p-0 ml-2 mr-1 tiled-button deny-product" mat-flat-button
+                            color="primary" 
+                            [ngClass]="{
+                                'deny-product': item.stock <= itemToNegate,
+                                'button-disabled': item.stock > itemToNegate}"
+                            [disabled]="item.stock > itemToNegate">
+                            <div class="deny d-flex flex-column align-items-center">
+                                <mat-icon class="action-button-icon mt-2">remove_circle</mat-icon>
+                                <h6 class="m-0 action-button-label mb-2"><small>Negar</small></h6>
+                            </div>
+                        </button>
+                        <button (click)="locateProduct(item)" class="p-0 ml-1 mr-1 tiled-button locate-product"
+                            mat-flat-button color="primary">
+                            <div class="locate d-flex flex-column align-items-center">
+                                <mat-icon class="action-button-icon mt-2">location_on</mat-icon>
+                                <h6 class="m-0 action-button-label mb-2"><small>Localizar</small></h6>
+                            </div>
+                        </button>
+                        <button 
+                            (click)="addToCart(item)"
+                            [ngClass]="{
+                                'add-to-card': item.hasStockAndPrice, 
+                                'button-disabled': !item.hasStockAndPrice}"
+                            [disabled]="!item.hasStockAndPrice" class="p-0 ml-1 mr-2 tiled-button" mat-flat-button
+                            color="primary">
+                            <div class="add d-flex flex-column align-items-center">
+                                <mat-icon class="action-button-icon mt-2">add</mat-icon>
+                                <h6 class="m-0 action-button-label mb-2"><small>Agregar</small></h6>
+                            </div>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

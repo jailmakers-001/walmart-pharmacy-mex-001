@@ -1,0 +1,68 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {      
+      "environment": ["src/environments/environment"],
+      "package": ["package.json"],
+      "sif-api-client": [
+        "dist/sif-api-client"
+      ],
+      "sif-api-client/*": [
+        "dist/sif-api-client/*"
+      ],
+      //institutional recipe module
+      "@ir/return-of-products/*": [
+        "src/app/components/institutional-recipe/institutional-recipe-return-of-products/*"
+      ],
+      "@ir/electronic-validation/*": [
+        "src/app/components/institutional-recipe/institutional-recipe-electronic-validation/*"
+      ],
+      "@ir/model/*": [
+        "src/app/components/institutional-recipe/model/*"
+      ],
+      //institutional recipe module
+      "@services/*":[
+        "src/app/services/*"
+      ],
+      "@environments/*": [
+        "src/environments/environment"
+      ],
+      "@skeleton-placeholder/*":[
+        "src/app/components/shared/skeleton-placeholder/*"
+      ],
+      "@components/*": [
+        "src/app/components/*"
+      ],
+      "@models/*": [
+        "src/app/models/*"
+      ],
+      "@shared/*": [
+        "src/app/components/shared/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  },
+  "exclude": [
+    "projects/*"
+  ]
+}

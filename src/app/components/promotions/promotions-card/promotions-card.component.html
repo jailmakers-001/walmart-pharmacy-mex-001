@@ -1,0 +1,53 @@
+<!-- <div class="container mt-4 mb-4 pb-5" *ngIf="Promos"> -->
+<div class="container" *ngIf="Promos">
+    <div class="row">
+        <div class="col-md-4 pt-4 pb-4" 
+            *ngFor="let item of Promos; last as isLast">
+            <div class="col-3 pr-0 pl-0 float-left">
+                <img default class="img-fluid" [src]="item.image" loading="lazy" alt="Image">
+                <div *ngIf="item.promotion">
+                    <span class="badge badge-warning online d-flex justify-content-center">
+                        <mat-icon class="m-0 p-0">shopping_cart</mat-icon>
+                        <p>
+                            Venta online
+                        </p>
+                    </span>
+                </div>
+            </div>
+            <div class="col-9 float-right">
+                <p class="description">{{item.description | titlecase}}</p>
+            </div>
+            <div class="col-9 d-flex justify-content-between float-right">
+                <div class="col-md-5 pl-0">
+                    <span color="primary" class="subtitle">UPC:</span>
+                    <p class="m-0 value">{{item.upc}}</p>
+                </div>
+                <div class="col-md-2">
+                    <span color="primary" class="subtitle">Precio:</span>
+                    <p class="m-0 price value">${{item.price}}.00</p>
+                </div>
+                <div class="col-md-4">
+                    <div *ngIf="item.promotion">
+                        <span color="primary" class="subtitle">Promocion:</span>
+                        <span class="badge badge-warning promotion">{{item.promotion | promotionPrice}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 pt-4 pb-4 d-flex justify-content-center align-items-center "
+            *ngIf="location == 'home'">
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-icon svgIcon="qr-promos" class="qr-promos">
+                    </mat-icon>
+                </div>
+                <div class="col-md-9 mt-1">
+                    <p class="d-flex justify-content-center qr-title mb-1">Nuestras promociones</p>
+                    <p class="d-flex justify-content-center qr-subtitle">Escanea el código para ver más</p>
+                </div>
+            </div>
+            <!-- <div class="qr-texto">
+            </div> -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Elementos/icons/editor/format_align_left_24px@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M12,4 C7.584,4 4,7.584 4,12 C4,16.416 7.584,20 12,20 C16.416,20 20,16.416 20,12 C20,7.584 16.416,4 12,4 Z M13.128,16.872 L13.128,18.4 L10.992,18.4 L10.992,16.856 C9.624,16.568 8.464,15.688 8.376,14.136 L9.944,14.136 C10.024,14.976 10.6,15.632 12.064,15.632 C13.632,15.632 13.984,14.848 13.984,14.36 C13.984,13.696 13.632,13.072 11.848,12.648 C9.864,12.168 8.504,11.352 8.504,9.712 C8.504,8.336 9.616,7.44 10.992,7.144 L10.992,5.6 L13.128,5.6 L13.128,7.16 C14.616,7.52 15.36,8.648 15.408,9.872 L13.84,9.872 C13.8,8.984 13.328,8.376 12.064,8.376 C10.864,8.376 10.144,8.92 10.144,9.688 C10.144,10.36 10.664,10.8 12.28,11.216 C13.896,11.632 15.624,12.328 15.624,14.344 C15.616,15.808 14.52,16.608 13.128,16.872 Z" id="path-1"></path>
+    </defs>
+    <g id="Mockups-AXA" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Elementos/icons/editor/monetization_on_24px" transform="translate(-4.000000, -4.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="ic_monetization_on_24px" fill="#414141" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

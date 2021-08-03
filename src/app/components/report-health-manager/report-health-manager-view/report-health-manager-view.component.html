@@ -1,0 +1,47 @@
+<mat-icon color="primary" 
+          mat-icon-dialog-close 
+          (click)="closeDialog()">
+          close
+</mat-icon>
+<div class="text-center d-flex justify-content-center">
+    <form [formGroup]="reportHealthForm">
+        <h3 class="title mb-0">¿Desde cuando no cuenta con responsable sanitario?</h3>
+        <p class="subtitle">Selecciona los días de ausencia del responsable sanitario</p>      
+
+        <app-date-range-inline 
+            [minDate]="minDate" 
+            [maxDate]="maxDate" 
+            (rangeChange)="onInlineRangeChange($event)">
+        </app-date-range-inline>
+
+        <div class="d-flex justify-content-around align-items-center">
+            <div>
+                <p>Desde</p>
+                <p class="range-text">{{ inlineRange | datePickerRange:'begin' }}</p>
+            </div>
+            <div>
+                <p>Hasta</p>
+                <p 
+                    class="range-text"
+                    [ngClass]="{'date-error': endTodayError}">{{ inlineRange | datePickerRange:'end' }}</p>
+            </div>
+            <mat-form-field class="example-full-width height-40">
+                <mat-label>Usuario que reporta</mat-label>
+                <input 
+                    matInput 
+                    placeholder="" 
+                    value=""
+                    formControlName="userReportField">
+            </mat-form-field>
+        </div>
+        <button 
+            (click)="sendReport()" 
+            class="btn-send mt-3 height-40"
+            mat-flat-button 
+            color="primary"
+            [disabled]="reportHealthForm.invalid || !inlineRange || endTodayError">
+            Enviar
+        </button>
+
+    </form>
+</div>

@@ -1,0 +1,29 @@
+.app-header {
+  .mat-flat-button {
+    background-color: #414141;
+    width: 200px;
+  }
+  .alphabet{
+    padding-left: 19%;
+    padding-right: 19%;
+    margin-top: -10px;
+    margin-bottom: 7px;
+  }
+}
+.visibility{
+  z-index: 10;
+}
+.custom-shadow{
+  background: #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.50) !important;
+}
+.header-section-btn{
+  width: 264px;
+  height: 40px;
+}
+.current-letter{
+  color: white;
+  border-radius: 20px;
+  line-height: 11px;
+  height: 27px;
+}

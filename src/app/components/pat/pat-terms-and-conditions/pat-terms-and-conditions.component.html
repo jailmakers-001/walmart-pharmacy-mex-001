@@ -1,0 +1,53 @@
+<div class="container h-100 p-0">
+    <div class="row m-0 h-100">
+        <div class="col-2 m-0 side-color d-flex justify-content-center align-items-start">
+            <img 
+                class="mt-4 back-button hand-cursor" 
+                src="assets/icon/back.png"
+                (click)="backPatValidationDialog()">
+        </div>
+        <div class="col-10 mt-4">
+            <div class="row pl-5 pr-5 mb-4 d-flex justify-content-center">
+                <img class="progress-img" src="{{ patStepDeterminant }}">
+            </div>
+            <h1 class="title ml-3 mb-0">Términos y Condiciones</h1>
+            <h2 class="subtitle ml-3 mb-0">Por favor, asegurate que el usuario acepta las clausulas.</h2>
+            <textarea class="ml-3 terms-conditions" disabled>
+En la compra de 3 productos participantes se le entregará al cliente una pieza adicional gratis, de conformidad con lo siguiente:
+
+• La acumulación y redención de medicamentos aplica en todas las tiendas participantes sin importar el formato.
+• No aplican medicamentos de alta especialidad
+• Aplican restricciones en principios activos señalados por la COFEPRIS
+• No aplica venta a aseguradoras
+• No aplica con otras promociones (si aplica descuento de asociado)
+• Para el caso de los medicamentos controlados, el cliente deberá contar con una receta médica válida que justifique la adquisición de las piezas (el cliente acepta que su exclusiva responsabilidad la compra de estos productos y que cualquier falsificación a los documentos es su entera responsabilidad).
+• Los Clientes no podrán intercambiar más de 5 PAT por UPC por cliente por mes
+• No más de 10 UPC por Cliente por día.
+• Incontinencia no tiene restricción en promociones de PAT
+• No existe vigencia para la redención de la cuarta pieza en PAT digital en tickets fechados 6 meses antes de su inscripción al programa.
+• En redención con ticket manual la vigencia del ticket es de 6 meses
+• Consulte a su medico
+• Consulte términos y condiciones en su jurisdicción
+• Para labaja de la mensajería el Cliente puede responder la palabra “BAJA” o acudir al mostrador de farmacia.
+• No se aceptan devoluciones de medicamentos de Patente (RX) (Rx: Medicamentos que requieren receta médica para su venta, se encuentran dentro de la farmacia detrás del mostrador) , Línea de genéricos “Medimart”, medicamentos refrigerados, medicamentos controlados Grupo II y III(Conlleva observación médica constante, su venta requiere receta especializada y el registro de la misma), medicamentos e insumos para la Salud de OTC (de libre venta).
+• No se aceptan devolución de productos de incontinencia con el sello violado.
+• No se aceptan devolución de productos de obsequio por promociones.
+
+a) - Terminación. El presente beneficio será válida del 28 de diciembre 2020 al 31 de enero 2022.
+b) - Modificaciones:. Walmart se reserva el derecho de modificar los presentes términos y condiciones sin previa autorización al Cliente.
+
+• Usted reconoce y manifiesta que, mediante el uso de los servicios de Farmacia de Walmart , ha leído estos términos y condiciones (los “T&C”) los entiende y se obliga en estos términos.
+• Consulta las tiendas participantes en la página.
+
+            </textarea>
+            <div class="row pt-2 pb-2">
+                <div class="col-md-4 offset-md-8 d-flex align-items-center justify-content-end">
+                    <button class="rounded-0 validate-btn" mat-flat-button color="primary"
+                        (click)="acceptAndBackPatValidationDialog()">
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="container h-100 p-0">
+    <div class="row m-0 h-100">
+        <div class="col-2 m-0 side-color d-flex justify-content-center align-items-start">
+            <img 
+                class="mt-4 back-button hand-cursor" 
+                src="assets/icon/back.png"
+                (click)="backToPatViewListDialog()">
+        </div>
+        <div class="col-10 mt-4">
+            <div class="title delete-profile-title d-flex align-items-center">
+                <mat-icon 
+                    color="primary"
+                    svgIcon="deleteProfile" 
+                    class="delete-profile">
+                </mat-icon>
+                <span class="ml-1">¿Estás seguro de borrar a este usuario?</span>
+            </div>
+            <div class="alert alert-dismissible alert-danger alert-banner mt-3 d-flex align-items-center">
+                <mat-icon class="mr-3">error</mat-icon>
+                <span>
+                    Una vez confirmado, todos los productos registrados e historial serán borrados de forma permanente y no será posible
+                    restablecerlos.
+                </span>
+            </div>
+            <div class="col-md-12 pl-0 mb-1">
+                <span class="text data">Nombre:</span><span class="text ml-2">{{ data.profileData.firstName | titlecase }}</span>
+            </div>
+            <div class="col-md-12 pl-0 mt-2 mb-2">
+                <span class="text data">Apellidos:</span><span class="text ml-2">{{ data.profileData.lastName |titlecase }} {{ data.profileData.motherLastName |titlecase }}</span>                            
+            </div>
+            <div class="col-md-12 pl-0 mt-2 mb-2">
+                <span class="text data">Número:</span><span class="text ml-2">{{ data.profileData.phone }}</span>
+            </div>
+            <div class="col-md-12 pl-0 mt-2 mb-2">
+                <span class="text data">Año de nacimiento:</span><span class="text ml-2">{{ data.profileData.birthYear }}</span>
+            </div>
+            <div class="col-md-12 pl-0 mt-2 mb-2">
+                <span class="text data">Correo electrónico:</span><span class="text ml-2">{{ data.profileData.email }}</span>
+            </div>
+            <div class="col-md-12 pl-0 mt-1">
+                <span class="text data">Código postal:</span><span class="text ml-2">{{ data.profileData.postalCode }}</span>
+            </div>
+
+            <div class="col mt-3 pl-0" [formGroup]="deleteProfileForm">
+                <mat-form-field class="field-input">
+                    <mat-label>Para proceder la baja del usuario, teclea en el siguiente campo la palabra “BORRAR”</mat-label>
+                    <input 
+                        formControlName="confirmDeleteField" 
+                        type="text" 
+                        autocomplete="off"
+                        matInput
+                        class="confirm-delete">
+                </mat-form-field>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 d-flex align-items-center justify-content-between">
+                    <button 
+                        class="rounded-0 validate-btn" 
+                        mat-stroked-button 
+                        color="primary"
+                        (click)="backToPatViewListDialog()">
+                        Cancelar
+                    </button>
+                    <button class="rounded-0 validate-btn" mat-flat-button color="primary" 
+                        (click)="deleteProfile()"
+                        [disabled]="deleteProfileForm.invalid">
+                        Borrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

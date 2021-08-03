@@ -1,0 +1,60 @@
+  .progress-img{
+    width: 450px;
+  }
+  .title{
+    font-size: 24px !important;
+    font-weight: 500;
+  }
+  .subtitle{
+    font-size: 12px !important;
+  }
+  .subtitle.alert{
+    line-height: initial;
+  }
+  .send-sms{
+    color: #1A75CF;
+    font-weight: 500;
+    cursor:pointer;
+  }
+  .sms-valid{
+    color: #61BF1A;
+  }
+  .sms-invalid{
+    color: #BDBDBD;
+  }
+  .bold{
+    font-weight: 600;
+  }
+  .finish-later{
+    font-weight: 600;
+    color: #1A75CF;
+    cursor: pointer;
+  }
+  .finish-later.button{
+    width: 14px;
+    height: 14px;
+  }
+  .back-button{
+    width: 2.5rem !important;
+  }
+  .finish-later{
+    font-weight: 600;
+    color: #1A75CF;
+    cursor: pointer;
+  }
+  .finish-later.button{
+    font-size: 0.7rem;
+  }
+  .back-button{
+    width: 2.5rem !important;
+  }
+  .conditions{
+    font-weight: 600;
+  }
+  .sms-code{
+    width: 20.6rem;
+    font-size: 12px;
+  }
+  .validate-btn{
+    width: 8.1rem;
+  }

@@ -1,0 +1,41 @@
+button {
+  min-width: 120px;
+  height: 40px;
+}
+
+.pat {
+  position: relative;
+  .logo{
+    position: absolute;
+    top: 0px;
+    padding: 20px;
+    left: 15px;
+  }
+  .iconClose {
+    position: absolute;
+    right: 35px;
+    top: 0px;
+    padding: 10px;
+    z-index: 1;
+    cursor: pointer;
+    color:white
+  }
+
+}
+.title{
+  font-size: 24px !important;
+  font-weight: 500;
+}
+.title-2{
+  font-size: 14px !important;
+}
+.subtitle{
+  font-size: 14px !important;
+  font-weight: 500;
+}
+.message{
+  font-size: 12px !important;
+}
+.message-2{
+  font-size: 12px !important;
+}

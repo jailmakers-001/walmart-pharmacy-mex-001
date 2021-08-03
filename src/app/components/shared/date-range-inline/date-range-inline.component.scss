@@ -1,0 +1,26 @@
+.date-range-inline{
+    .mat-calendar{
+        border: #F6F6F6 1px solid;
+        width: 298px;
+        border-color: #BDBDBD;
+    }
+    .mat-calendar-header{
+        background-color: #F6F6F6 !important;
+        background-color: red !important;
+    }
+    .mat-calendar-arrow{
+        color: #1A75CF !important;
+    }
+    .range-text{
+        width: 120px;
+        font-size: 14px;
+        color: #1A75CF;
+        height:40px !important;
+    }
+    .range-register-name{
+        width: 200px;
+    }
+    .inlineCalendarContainer{
+        height: 362px;
+    }
+}

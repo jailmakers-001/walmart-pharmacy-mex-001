@@ -1,0 +1,279 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="closeDialog()">
+    close
+</mat-icon>
+<div class="container return resume-of-medicines">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="d-flex justify-content-center mt-4 title" color="primary">
+                Sistema de devolución de medicamentos
+            </p>
+        </div>
+        <div class="col-md-10 offset-md-1">
+            <div class="d-flex justify-content-center subtitle mb-3">
+                <span>
+                    Los siguientes medicamentos corresponden al número de ticket registrado. Para realizar la devolución de los
+                    medicamentos, solicita al asegurado todos los productos surtidos y al finalizar el proceso de devolución, realiza la
+                    validación nuevamente.
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1 mt-3 pl-0 pr-0">
+            <div class="example-container">
+                <div class="example-container mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource">
+        
+                        <ng-container matColumnDef="medicine" sticky>
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">Medicamento</span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="d-flex align-items-center justify-content-start medicine">
+                                    <span class="ml-2 text-elipsis">
+                                        {{element.medicineName}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="qty">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Cantidad
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="qty">
+                                    <span class="ml-2">
+                                        {{element.quantity}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="stock">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Existencias
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="stock">
+                                    <span class="ml-2">
+                                        {{element.stock}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="presentation">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Presentación
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="presentation">
+                                    <span class="ml-2">
+                                        {{element.presentation}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Estatus
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="status ml-2 mr-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="d-flex justify-content-center align-items-center">
+                                            <mat-icon inline="true" class="status ready mr-1">brightness_1</mat-icon>
+                                            {{element.status}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="clientAmount">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Copago
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="client-amount">
+                                    <span class="ml-2">
+                                        {{element.clientAmount | amount: 'simple'}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="price">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Precio
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="price">
+                                    <span class="ml-2">
+                                        {{element.price}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="duration">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Duración
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="duration">
+                                    <span class="ml-2">
+                                        {{element.duration}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="type">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Tipo
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="type">
+                                    <span class="ml-2">
+                                        {{element.type}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="eancode">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    EAN
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="eancode">
+                                    <span class="ml-2">
+                                        {{element.eancode}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="frecuency">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Frecuencia
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="frecuency">
+                                    <span class="ml-2">
+                                        {{element.frecuency}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="dateTime">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Fecha/Hora
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="dateTime">
+                                    <span class="ml-2">
+                                        {{element.dateTime}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="financer">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Financiador
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="financer text-truncate">
+                                    <span class="ml-2">
+                                        {{element.financer}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="client">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <span class="ml-2">
+                                    Cliente
+                                </span>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="client text-truncate">
+                                    <span class="ml-2">
+                                        {{element.client}}
+                                    </span>
+                                </div>
+                            </td>
+                        </ng-container>
+        
+                        <!-- Star Column -->
+                        <ng-container matColumnDef="star" stickyEnd>
+                            <th mat-header-cell *matHeaderCellDef></th>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-icon color="primary">more_vert</mat-icon>
+                            </td>
+                        </ng-container>
+        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-10 offset-md-1 border-top mb-3">
+        </div>
+        <div class="col-md-4 offset-md-7">
+            <div class="d-flex justify-content-end bold">
+                <span>Copago:</span>
+                <span class="ml-4 price">{{ data.clientProfileData.clientAmount | amount: 'simple' }}</span>
+            </div>
+            <div class="d-flex justify-content-end bold mt-1">
+                <span>Monto de la aseguradora:</span>
+                <span class="ml-4 price">{{ data.clientProfileData.financerAmount | amount: 'simple' }}</span>
+            </div>
+            <div class="d-flex justify-content-end bold mt-1">
+                <span>Total:</span>
+                <span class="ml-4 price">{{ data.clientProfileData.totalAmount | amount: 'simple' }}</span>
+            </div>
+        </div>
+        <div class="col-md-10 offset-md-1 mt-3">
+            <div class="d-flex justify-content-end">
+                <button mat-flat-button color="primary" class="mat-button" (click)="openReturnReasonDialog()">
+                    Devolver
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

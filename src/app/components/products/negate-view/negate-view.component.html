@@ -1,0 +1,17 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="dialogRef.close()">close</mat-icon>
+<div class="row p-2 m-2 ">
+    <div class="col text-center">
+        <h3 color="primary"> Cantidad a Negar</h3>
+        <p>Ingresa la cantidad de producto que deseas negar</p>
+        <div class="counter">
+            <button mat-flat-button color="primary" [disabled]="qty==0" (click)="qty= qty-1">
+                <mat-icon>remove</mat-icon>
+            </button>
+            <input [ngModel]="qty" readonly />
+            <button mat-flat-button color="primary" (click)="qty=qty+1">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+        <button class="m-3" mat-flat-button color="primary" [disabled]="qty==0" (click)="negate()">Aceptar</button>
+    </div>
+</div>

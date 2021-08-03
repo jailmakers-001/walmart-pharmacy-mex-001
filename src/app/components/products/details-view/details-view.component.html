@@ -1,0 +1,53 @@
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-2">
+            <img class="thumbnail row p-3" default [src]="product.image" alt="Imagen">
+            <h5 color="primary" class="row font-weight-bold">Laboratorio</h5>
+            <h5 class="row">{{product.laboratory}}</h5>
+
+            <h5 color="primary" class="row font-weight-bold">UPC</h5>
+            <h5 class="row">{{product.upc}}</h5>
+
+            <h5 color="primary" class="row font-weight-bold">Precio</h5>
+            <h5 class="row">{{product.price | price }}</h5>
+
+            <h5 color="primary" class="row font-weight-bold">Categoría</h5>
+            <h5 class="row">{{product.medicineTypeDescription}}</h5>
+
+            <h5 color="primary" class="row font-weight-bold">Cantidad Disponible</h5>
+            <h5 class="row">{{product.stock || 'N/D'}}</h5>
+
+            <h5 color="primary" class="row font-weight-bold">Sustancia</h5>
+            <h5 class="row">{{product.substances}}</h5>
+
+        </div>
+        <div class="col-6 text-left mt-5">
+            <br>
+            <h1 color="primary">{{product.name}}</h1>
+            <hr><br>
+            <h5 class="row">{{product.description}}</h5>
+            <br>
+            <h5 class="font-weight-bold row">Presentación</h5>
+            <h5 class="row">{{product.presentation}}</h5>
+            <br>
+            <h5 class="font-weight-bold row">Forma farmacéutica y formulación</h5>
+            <h5 class="row">{{product.presentation}}</h5>
+            <br>
+            <h5 class="font-weight-bold row">Substancias</h5>
+            <h5 class="row">{{product.activeSubstances}}</h5>
+        </div>
+        <div class="col-4 p-4 grey300">
+            <mat-spinner class="xy-center" *ngIf="loading"></mat-spinner>
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let attribute of attributes">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{attribute.attributeName}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div [innerHTML]="attribute.htmlContent"></div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>

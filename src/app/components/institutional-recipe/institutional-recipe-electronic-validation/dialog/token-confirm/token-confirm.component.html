@@ -1,0 +1,81 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="openPauseProcessDialog()">
+    close
+</mat-icon>
+<div class="container validation">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-center mt-4">
+                <img [src]="stepper4">
+            </div>
+            <p class="d-flex justify-content-center mt-5 title" color="primary">
+                Sistema de Valicación Electrónica
+            </p>
+        </div>
+        <div class="col-md-3 offset-md-1">
+            <div class="card mt-4">
+                <h5 class="card-header amount header mb-0">
+                    <div class="d-flex justify-content-center">
+                        <mat-icon svgIcon="money" class="mr-2 icon-money"></mat-icon>
+                        <span class="amount title bold"> Descripciones y costos</span>
+                    </div>
+                </h5>
+                <div class="card-body pt-3 pb-3">
+                    <div class="d-flex justify-content-between align-items-center amount bold">
+                        <span>
+                            Copago:
+                        </span>
+                        <span>
+                            {{ data.clientProfileData.clientAmount | amount: 'simple' }}
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3 amount bold">
+                        <span>
+                            Monto de la
+                            aseguradora:
+                        </span>
+                        <span>
+                            {{ data.clientProfileData.financerAmount | amount: 'simple' }}
+                        </span>
+                    </div>
+                    <div class="border-top mt-2"></div>
+                    <div class="d-flex justify-content-between align-items-center mt-2 amount bold">
+                        <span>
+                            Total:
+                        </span>
+                        <span>
+                            {{ data.clientProfileData.totalAmount | amount: 'simple' }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="d-flex justify-content-center subtitle mb-4 mt-4">
+                <span>
+                    Se ha enviado un mensaje de texto con un <span class="bold">código de autorización (Token)</span> al teléfono registrado del asegurado. Solicita
+                    el código e ingrésalo en el siguiente campo.
+                </span>
+            </div>
+            <div class="d-flex justify-content-start aling-content-center subtitle mb-4 mt-4">
+                <mat-icon class="mr-2 hand-cursor" color="primary" (click)="resendToken()">refresh</mat-icon>
+                <span color="primary" class="bold hand-cursor" (click)="resendToken()">
+                    Enviar nuevamente mensaje de Texto
+                </span>
+            </div>
+            <div class="d-flex justify-content-center mt-4" [formGroup]="tokenForm">
+                <mat-form-field class="mat-form">
+                    <mat-label>Ingresa el código de autorización (Token)</mat-label>
+                    <input 
+                        formControlName="token" 
+                        matInput 
+                        class="mat-input" 
+                        autocomplete="off"
+                        mask="0*"
+                        [maxlength]="tokenMaxLength">
+                </mat-form-field>
+                <button mat-flat-button color="primary" class="mat-button" [disabled]="tokenForm.invalid"
+                    (click)="confirmToken()">Validar</button>
+            </div>
+        </div>
+    </div>
+</div>

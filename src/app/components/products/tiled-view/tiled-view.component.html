@@ -1,0 +1,115 @@
+<div class="tiled-view mb-5 mt-4">
+    <div class="row align-items-center d-flex justify-content-center">
+        <div class="col d-contents">
+                <!-- added for items that havent sustance -->
+            <mat-card *ngFor="let item of products" class="p-0 m-2 mat-elevation-z4 align-self-start">
+                <!-- added for items that havent sustance -->
+                <div class="copefris alert alert-danger" *ngIf="item.cofepris">
+                   <p class="copefris d-flex justify-content-center align-items-center">
+                        <mat-icon>error</mat-icon> 
+                        Retirado por alerta sanitaría (COFEPRIS)
+                    </p>
+                </div>
+                <mat-card-content class="pl-2 pr-2 text-left m-0">
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 pt-3 pb-3">
+                            <div class="d-flex align-items-center tiled">
+                                <img [src]="item.image" loading="lazy" class="d-block m-auto thumbnail image" alt="Image" style="height: 50%;">
+                            </div>
+                        </div>
+                    </div>
+                    <h5 color="primary" class="row title mb-1">{{item.name }}</h5>
+                    <h6 *ngIf="item.substances" class="text-left description subtitle">{{item.substances}}</h6>
+                    <div class="pt-2 pb-2 border-bottom border-top">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span color="primary" class="m-0 title">UPC:</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="m-0 subtitle">{{item.upc}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2 pb-2 border-bottom">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span color="primary" class="m-0 title">Laboratorio:</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="m-0 subtitle info d-inline-block">{{item.laboratory | uppercase }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2 pb-2 border-bottom">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span color="primary" class="m-0 title">Categoría:</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="m-0 subtitle info d-inline-block">{{item.medicineTypeDescription | uppercase }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2 pb-2 border-bottom">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span color="primary" class="m-0 title">Disponible:</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="m-0 subtitle">{{item.stock || 'N/D'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2 pb-2">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span color="primary" class="m-0 title">Precio:</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="m-0 subtitle">{{item.price | price}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <div class="buttons d-flex justify-content-between pl-2 pr-2 pb-2">
+                    <button (click)="reportNegate(item)" 
+                            class="tiled-button rounded-0" 
+                            mat-flat-button 
+                            color="primary"
+                            [ngClass]="{
+                                'deny-product': item.stock <= itemToNegate,
+                                'button-disabled': item.stock > itemToNegate}"
+                            [disabled]="item.stock > itemToNegate"> 
+                            <div class="d-flex justify-content-around">
+                                <mat-icon class="button-icon mt-2 mr-1">remove_circle</mat-icon>
+                                <span class="button-title">Negar</span>
+                            </div>
+                    </button>
+                    <button (click)="locateProduct(item)" 
+                            class="locate-product tiled-button rounded-0" 
+                            mat-flat-button 
+                            color="primary"> 
+                            <div class="d-flex justify-content-around">
+                                <mat-icon class="button-icon mt-2 mr-1">location_on</mat-icon>
+                                <span class="button-title">Localizar</span>
+                            </div>
+                    </button>
+                    <button (click)="addToCart(item)"
+                            [ngClass]="{
+                                'add-to-card': item.hasStockAndPrice, 
+                                'button-disabled': !item.hasStockAndPrice}"
+                            class="tiled-button rounded-0" 
+                            [disabled]="!item.hasStockAndPrice"
+                            mat-flat-button 
+                            color="primary"> 
+                            <div class="d-flex justify-content-around">
+                                <mat-icon class="button-icon mt-2 mr-1">add</mat-icon>
+                                <span class="button-title">Agregar</span>
+                            </div>
+                    </button>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+</div>

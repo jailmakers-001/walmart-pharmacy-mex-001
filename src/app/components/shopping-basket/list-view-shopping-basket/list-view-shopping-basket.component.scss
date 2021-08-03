@@ -1,0 +1,66 @@
+.tiled{
+    background-color: #F7F7F7;
+    border-radius: 50%;
+    width: 114px;
+    height: 114px;
+}
+.tiled.image{
+    height: 50%;
+}
+.text{
+    font-size: 12px;
+}
+.title{
+    color: #1A75CF;
+    font-weight: 500;
+}
+.subtitle{
+    color: black;
+}
+.title.name{
+    font-weight: 600;
+}
+.delete{
+    background-color: #E95C5D;
+    color: white;
+    width: 56px;
+}
+.delete.cdk-focused{
+    outline: none !important;  //disable material focus 
+}
+.qty-button{
+    min-width: 24px;
+    height: 16px;
+}
+.clear{
+    padding-top: 5px;
+    height: 23px;   
+}
+.row.list-view{
+    height: 120px;
+    width: 840px;
+}
+.table{
+    width: 840px;
+}
+.add{
+    width: 24px; 
+    height: 16px; 
+    font-size: 11px;
+    color: white;
+}
+.add.minus{
+    background-color: #2B93FA;
+}
+.qty{
+    width: 40px;
+    height: 32px;
+    font-size: 12px;
+    text-align: center;  
+    background-color: #EEEEEE;
+}
+.add.minus{
+    background-color: white;
+    color: black;
+    border: 0.1px solid #cccccc !important;
+}

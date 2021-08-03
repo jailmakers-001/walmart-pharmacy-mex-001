@@ -1,0 +1,38 @@
+.tags{
+    .tag{
+        width: -30px;
+        height: 20px;
+        color:#fff;
+        font-size: 10px;
+        padding:3px;
+        border-radius: 3px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 3px;
+        border-style: double;
+    }
+    .content{
+        width: 100%;
+        min-height: 15px;
+        margin: auto;
+        flex-wrap: wrap;
+        margin-top: -15px;
+        z-index: 100;
+    }
+    .faltante-origen{
+        background: #000;
+    }
+
+    .super-ahorro{
+        background:#28a745;
+    }
+
+    .cambio-presentacion{
+        background: #ff2f00;
+    }
+
+    .nuevo-producto{
+        background: #0008ff;
+    }
+}

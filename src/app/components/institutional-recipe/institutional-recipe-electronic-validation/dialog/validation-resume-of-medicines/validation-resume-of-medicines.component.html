@@ -1,0 +1,294 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="openPauseProcessDialog()">
+    close
+</mat-icon>
+<div class="container resume-of-medicines">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-center mt-4">
+                <img [src]="stepper3">
+            </div>
+            <p class="d-flex justify-content-center mt-4 title" color="primary">
+                Sistema de Valicación Electrónica
+            </p>
+        </div>
+        <div class="col-md-10 offset-md-1 mb-3">
+            <div class="d-flex justify-content-center subtitle mb-3">
+                <span>
+                    Los siguientes medicamentos son los autorizados para surtir, por favor consulta la existencia de los
+                    productos antes de continuar. 
+                    En caso de no tener algún producto, puedes hacer el surtido parcial.
+                </span>
+            </div>
+            <div class="alert alert-warning mb-0 p-2 d-flex justify-content-start align-items-center" role="alert">
+                <mat-icon class="alert-icon d-flex justify-content-center align-items-center">info</mat-icon>
+                <span class="alert-message">
+                    Antes de hacer clic en el botón de “Continuar”, corrobora los medicamentos a surtir, ya que no será posible realizar
+                    modificaciones más adelante
+                </span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="example-container">
+                            <table mat-table [dataSource]="dataSource" class="hand-cursor">
+            
+                                <!-- Checkbox Column -->
+                                <ng-container matColumnDef="medicine" sticky>
+                                    <th mat-header-cell *matHeaderCellDef class="pl-1">
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <mat-checkbox (change)="$event ? masterToggle() : null"
+                                                [checked]="selection.hasValue() && isAllSelected()"
+                                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                                color="primary">
+                                            </mat-checkbox>
+                                            <p class="ml-2 mt-1">
+                                                Medicamento
+                                            </p>
+                                        </div>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row" class="pl-1">
+                                        <div class="d-flex align-items-center justify-content-start mt-2 name">
+                                            <mat-checkbox (click)="$event.stopPropagation()"
+                                                (change)="$event ? selection.toggle(row) : null"
+                                                [checked]="selection.isSelected(row)"
+                                                class="pr-1"
+                                                color="primary">
+                                            </mat-checkbox>
+                                            <span class="mb-2 ml-1 hand-cursor text-elipsis">
+                                                {{row.medicineName}}
+                                                
+                                            </span>
+                                        </div>
+                                    </td>
+                                </ng-container>
+            
+                                <ng-container matColumnDef="qty">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2 font-weight-bold">
+                                            Cantidad
+                                        </span>
+                                    </th>
+                                    <td  class="ml-5 mr-5" mat-cell *matCellDef="let element">  
+                                        <div class="qty ml-2">
+                                            {{element.quantity}}
+                                        </div>
+                                    </td>
+                                </ng-container>
+            
+                                <ng-container matColumnDef="stock">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2 font-weight-bold">
+                                            Existencias
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="stock ml-2">
+                                            {{element.quantity}}
+                                        </div>
+                                     </td>
+                                </ng-container>
+            
+                                <ng-container matColumnDef="presentation">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2">
+                                            Presentación
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="presentation">
+                                            <span class="ml-2">
+                                                {{element.presentation}}
+                                            </span> 
+                                        </div>
+                                    </td>
+                                </ng-container>
+            
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2">
+                                            Estatus
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="status ml-2 mr-3">
+                                            <div class="d-flex align-items-center">
+                                                <span class="d-flex justify-content-center align-items-center">
+                                                    <mat-icon inline="true" class="status pending mr-1">brightness_1</mat-icon> 
+                                                    {{element.status}}
+                                                </span> 
+                                            </div>
+                                        </div>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="price">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2">
+                                            Precio
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="price ml-2">
+                                            <span *ngIf="element.price; else elseBlock">
+                                                <div class="d-flex align-items-center">
+                                                    {{ element.price | amount: 'simple' }}
+                                                </div>
+                                            </span> 
+                                            <ng-template #elseBlock>
+                                                <span>
+                                                    <div class="d-flex align-items-center">
+                                                        ---
+                                                    </div>
+                                                </span>
+                                            </ng-template>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="duration">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2">
+                                            Duración
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="duration">
+                                            <span class="ml-2">
+                                                {{element.duration}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="type">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2">
+                                            Tipo
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="type">
+                                            <span class="ml-2">
+                                                {{element.type}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="eancode">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2">
+                                            EAN
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="eancode">
+                                            <span class="ml-2">
+                                                {{element.eancode}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                                
+                                <ng-container matColumnDef="frecuency">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2">
+                                            Frecuencia
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="frecuency">
+                                            <span class="ml-2">
+                                                {{element.frecuency}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="dateTime">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2">
+                                            Fecha
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="dateTime">
+                                            <span class="ml-2">
+                                                {{element.dateTime}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="financer">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2">
+                                            Financiador
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="financer text-truncate">
+                                            <span class="ml-2">
+                                                {{element.financer}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="client">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <span class="ml-2">
+                                            Cliente / Contratante
+                                        </span>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <div class="client text-truncate">
+                                            <span class="ml-2">
+                                                {{element.client}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </ng-container>
+            
+                                <!-- Star Column -->
+                                <ng-container matColumnDef="star" stickyEnd>
+                                    <th mat-header-cell *matHeaderCellDef></th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <mat-icon color="primary">more_vert</mat-icon>
+                                    </td>
+                                </ng-container>
+            
+            
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+                                </tr>
+                            </table>
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-10 offset-md-1 border-top mb-4"></div>
+        <div class="col-md-3 offset-md-1">
+            <button mat-flat-button color="primary" class="mat-button"
+                (click)="openCancelProcessDialog()">
+                Cancelar proceso
+            </button>
+        </div>
+        <div class="col-md-5 offset-md-2">
+            <div class="d-flex justify-content-end">
+                <button mat-flat-button color="primary" class="mat-button mr-3"
+                    (click)="openPauseProcessDialog()"
+                    [disabled]="selection.selected.length < 1">
+                    Pausar proceso
+                </button>
+                <button mat-flat-button color="primary" class="mat-button"
+                    (click)="openTokenConfirm()"
+                    [disabled]="selection.selected.length < 1">
+                    Continuar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

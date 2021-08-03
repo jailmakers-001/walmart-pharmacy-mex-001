@@ -1,0 +1,330 @@
+<div class="pat-view-list h-100">
+  <div class="row pt-2 pb-3 m-0 grey300">
+    <div class="col-md-1 justify-content-center d-flex align-items-center">
+      <img 
+        [src]="avatarDeterminantPat" 
+        onfocus="true"
+        class="avatar">
+      <img 
+        *ngIf="data.valid" 
+        src="assets/icon/warning_pat.png"
+        class="avatar">
+    </div>
+    <div class="row col-md-6">
+      <p class="mt-2 mb-0 pb-2 title-list">Historial de compras por usuario</p>
+      <div class="col-md-6 p-0">
+        <div class="text d-flex align-items-center"> 
+          <span class="pat-view-list-info subtitle">Nombre:</span> 
+          <span class="d-inline-block text-truncate ml-1" style="max-width: 90px;">{{data.profileData.firstName | titlecase}}</span>
+        </div>
+      </div>
+      <div class="col-md-6 p-0">
+        <div class="text d-flex align-items-center"> 
+          <span class="pat-view-list-info subtitle">Apellidos:</span>
+          <span class="d-inline-block text-truncate ml-1" style="max-width: 90px;">{{data.profileData.lastName |titlecase }} {{data.profileData.motherLastName |titlecase }}</span>
+        </div>
+      </div>
+      <div class="col-md-6 p-0">
+        <small class="text">
+          <span class="pat-view-list-info subtitle">Número:</span> {{data.profileData.phone}}
+        </small>
+      </div>
+      <div class="col-md-6 p-0">
+        <small class="text"> 
+          <span class="pat-view-list-info subtitle">Año de nacimiento:</span> {{data.profileData.birthYear}}
+        </small>
+      </div>
+    </div>
+    <div
+      *ngIf="!edit" 
+      class="col-md-5 p-0 d-flex justify-content-center align-items-center">
+      <button 
+        type="button" 
+        (click)="edit=true" 
+        mat-stroked-button 
+        color="primary"
+        class="edit d-flex justify-content-center align-items-center">
+        <mat-icon>edit</mat-icon> Editar datos
+      </button>
+      <button 
+        class="ml-2 d-flex justify-content-center align-items-center" 
+        mat-flat-button 
+        (click)="openScan()" 
+        color="primary">
+        <mat-icon>add</mat-icon> Escanear ticket
+      </button>
+    </div>
+    <div
+      *ngIf="edit" 
+      class="col-md-5 p-0 d-flex justify-content-end align-items-center">
+      <div class="delete-profile border-icon rounded d-flex align-items-center">
+        <mat-icon 
+          color="primary" 
+          svgIcon="deleteProfile" 
+          class="hand-cursor delete-profile px-2"
+          (click)="openDeleteProfileDataDialog()">
+        </mat-icon>
+      </div>
+    </div>
+  </div>
+  <div
+  *ngIf="!edit">
+    <div
+      *ngIf="!data.profileData.medicines.length" 
+      class="container">
+      <div class="row">
+        <div class="col-md-12 mt-4 pt-4">
+          <div class="col my-auto text-center mt-5 pt-5">
+            <img src="assets/icon/empty_pat.svg" alt="empty">
+          </div>
+          <div class="d-flex align-items-end justify-content-end mt-5 pt-5">
+            <button 
+              class="mt-3"
+              mat-flat-button 
+              color="primary" 
+              (click)="close()">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div *ngIf="!edit">
+  <div class="container scrolling-container" *ngIf="data.profileData.medicines.length">
+    <div *ngIf="!edit">
+      <div class="row">
+        <div class="col-md-6 mt-3 mb-3" *ngFor="let medicine of data.profileData.medicines;">
+          <div class="d-flex justify-content-center">
+            <div class="row product-card shadow pr-1">
+              <div class="col-md-2 p-0 pl-1 pr-1 d-flex align-items-center img-container">
+                <img default class="col p-1 thumbnail img-form" [src]="medicine.image" alt="Producto">
+              </div>
+              <div class="col-md-8 pt-2 pb-2">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="pt-1 pb-1 m-0 description">{{ medicine.description || 'Sin descripción' | uppercase}}</p>
+                  </div>
+                  <div class="col-md-6">
+                    <p class="upc m-0"><span>UPC: <strong>{{medicine.upc}}</strong> </span></p>
+                  </div>
+                  <div class="col-md-6">
+                    <p [ngClass]="{'free-product-disabled': medicine.avaliable == 0}"
+                      class="grey300 free-product m-0 rounded d-flex justify-content-center">
+                      <span>Productos gratis: {{medicine.avaliable }}</span>
+                    </p>
+                  </div>
+                  <div class="col-md-12">
+                    <p *ngIf="!medicine.avaliable && medicine.accumulated > 0" class="redeem-count m-0">Estas a
+                      {{ medicine.remaining }} compras para un producto gratis</p>
+                    <p *ngIf="medicine.avaliable > 0" class="redeem-now m-0">
+                      ¡Felicidades! Ya tienes un producto gratis
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0 d-flex align-items-center">
+                <span 
+                  [ngClass]="{'redeem-disabled': !medicine.avaliable || !medicine.enabled}"
+                  class="redemption hand-cursor rounded p-1 d-flex align-items-center justify-content-center"
+                  (click)="redemption(medicine)">
+                  Canjear
+                </span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="medicine.message" class="a d-flex justify-content-center">
+            <div class="row">
+              <div class="col-md-12 pat message">
+                <div class="a d-flex justify-content-center align-items-center">
+                  <span class="text-white d-inline-block text-truncate">{{ medicine.message }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!edit">
+  <div *ngIf="data.profileData.medicines.length" class="container">
+    <div class="row">
+      <div class="col-md-12 mt-1 mb-1 d-flex justify-content-end align-items-center">
+        <button 
+          mat-flat-button 
+          color="primary" 
+          (click)="close()"
+          class="mr-1 mt-1">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div *ngIf="data.profileData.medicines.length > 100" class="row">
+    <div *ngIf="!edit">
+      <div
+        *ngFor="let medicine of data.profileData.medicines" 
+        class="p-1 m-0 col-md-6">
+        <div class="row shadow">
+          <div class="col-md-2">
+            <img default class="col p-1 thumbnail" [src]="medicine.image" alt="Producto">
+          </div>
+          <div class="col-md-8">
+            <div class="col p-0">
+              <p class="m-0">{{ medicine.description || 'Sin descripción' | uppercase}}</p>
+              <small><span>UPC: <strong>{{medicine.upc}}</strong> </span></small>
+              <small class="grey300 p-1"><span>Productos gratis: {{medicine.avaliable }}</span></small>
+              <small class="redeem-count">Estas a {{ medicine.accumulated }} compras para un producto gratis</small>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button 
+              class="redemption" 
+              mat-flat-button 
+              color="primary" 
+              [disabled]="medicine.avaliable == 0">
+              Canjear
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row m-0 p-4" *ngIf="edit">
+    <form class="p-4 edit-form w-100" [formGroup]="profileDataForm">
+      <div class="row">
+        <div class="col my-auto text-center">
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field
+                class="profile-data">
+                <input 
+                  name="firstName" 
+                  type="text" 
+                  autocomplete="off" 
+                  formControlName="firstNameField" 
+                  matInput 
+                  placeholder="Nombres" 
+                  required>
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field
+                class="profile-data">
+                <input 
+                  name="lastName" 
+                  type="text" 
+                  autocomplete="off" 
+                  formControlName="lastNameField" 
+                  matInput 
+                  placeholder="Apellido Paterno" 
+                  required>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field
+                class="profile-data">
+                <input 
+                name="motherLastName" 
+                type="text" 
+                autocomplete="off" 
+                formControlName="motherLastNameField" 
+                matInput
+                placeholder="Apellido Materno" 
+                required>
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field
+                class="profile-data">
+                <input 
+                name="phone" 
+                readonly 
+                type="text" 
+                autocomplete="off" 
+                formControlName="phoneField" 
+                matInput 
+                placeholder="Número celular" 
+                required>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field
+                class="profile-data">
+                <input name="email" type="email" autocomplete="off" formControlName="emailField" matInput
+                  placeholder="Correo electrónico (Opcional)">
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field
+                class="profile-data">
+                <input 
+                name="birthYear" 
+                type="text" 
+                autocomplete="off" 
+                mask="0000" 
+                formControlName="birthYearField" 
+                matInput 
+                placeholder="Año de nacimiento" 
+                required>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field
+                class="profile-data">
+                <input 
+                  name="postalCode" 
+                  type="text" 
+                  autocomplete="off" 
+                  mask="00000"
+                  formControlName="postalCodeField" 
+                  matInput 
+                  placeholder="Código postal"
+                  required>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-center">
+          <section class="example-section">
+            <mat-checkbox 
+              formControlName="checkField" 
+              class="example-margin text-dark" 
+              color="primary">
+              Cliente desea recibir notificaciones
+            </mat-checkbox>
+          </section>
+        </div>
+        <div class="col-md-6">
+          <button
+            (click)="toggleEditProfile()"
+            mat-stroked-button
+            color="primary">
+            Cerrar
+          </button>
+          <button
+            class="ml-2"
+            (click)="saveProfileData()"
+            [disabled]="profileDataForm.pristine || profileDataForm.invalid"
+            mat-flat-button 
+            color="primary">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

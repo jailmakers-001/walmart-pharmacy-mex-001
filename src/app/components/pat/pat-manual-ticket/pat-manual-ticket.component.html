@@ -1,0 +1,52 @@
+<div class="pat-manual-ticket">
+    <div class="row m-0 h-100" style="position:relative">
+      <div class="col-2 m-0 side-color">
+        <img (click)="close()" class="w-80 p-3 ml-3" src="assets/icon/back.png" alt="back button">
+      </div>
+      <div class="col-10 align-self-center" style="position: relative;">
+        <img class="logo" src="{{ determinantLogoPat }}" />
+        <h1 color="primary" class="mt-2 mb-5 title"> Captura el ticket</h1>
+
+        <form class="mt-3" [formGroup]="ticketForm">
+          <div class="row">
+            <div class="col-10">
+              <mat-form-field
+                class="field-input">
+                <mat-label>Captura los dígitos del ticket</mat-label>
+                <input 
+                  formControlName="ticket"
+                  [maxlength]="ticketScannerMaxLength"
+                  type="text" 
+                  autocomplete="false" 
+                  matInput
+                  mask="0*">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-10">
+              <mat-form-field
+                class="field-input">
+                <mat-label>Confirmación de los dígitos del ticket</mat-label>
+                <input 
+                  formControlName="ticketConfirm"
+                  [maxlength]="ticketScannerMaxLength"
+                  type="text" 
+                  autocomplete="false" 
+                  matInput
+                  mask="0*">
+              </mat-form-field>
+            </div>
+          </div>
+          <button 
+            class="mt-4"
+            mat-flat-button 
+            color="primary" 
+            [disabled]="ticketForm.invalid" 
+            (click)="validate()">
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Elementos/icons/device/access_alarm_24px@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M24,8 C15.168,8 8,15.168 8,24 C8,32.832 15.168,40 24,40 C32.832,40 40,32.832 40,24 C40,15.168 32.832,8 24,8 Z M24,12.8 C26.656,12.8 28.8,14.944 28.8,17.6 C28.8,20.256 26.656,22.4 24,22.4 C21.344,22.4 19.2,20.256 19.2,17.6 C19.2,14.944 21.344,12.8 24,12.8 Z M24,35.52 C20,35.52 16.464,33.472 14.4,30.368 C14.448,27.184 20.8,25.44 24,25.44 C27.184,25.44 33.552,27.184 33.6,30.368 C31.536,33.472 28,35.52 24,35.52 Z" id="path-1"></path>
+    </defs>
+    <g id="Inicio-BA-SP-SAMS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Elementos/icons/action/account_circle_24px" transform="translate(-8.000000, -8.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="ic_account_circle_24px" fill="#1A75CF" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

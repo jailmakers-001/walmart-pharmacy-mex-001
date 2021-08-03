@@ -1,0 +1,12 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="close()">
+    close
+</mat-icon>
+<h1 class="d-flex justify-content-center pt-5" color="primary">Escanea el ticket</h1>
+<div class="mt-5 mb-5">
+    <app-scanner-animation></app-scanner-animation>
+</div>
+<div class="d-flex justify-content-center">
+    <button tabindex="-1" (click)="manual()" mat-stroked-button color="primary">
+        Escanear ticket manualmente
+    </button>
+</div>

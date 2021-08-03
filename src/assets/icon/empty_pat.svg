@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="237px" height="129px" viewBox="0 0 237 129" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>empity_state</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M84.2916667,79.3333333 L36.6916667,79.3333333 L36.6916667,71.4 L84.2916667,71.4 L84.2916667,79.3333333 Z M84.2916667,63.4666667 L36.6916667,63.4666667 L36.6916667,55.5333333 L84.2916667,55.5333333 L84.2916667,63.4666667 Z M84.2916667,47.6 L36.6916667,47.6 L36.6916667,39.6666667 L84.2916667,39.6666667 L84.2916667,47.6 Z M24.7916667,99.1666667 L30.7416667,93.2166667 L36.6916667,99.1666667 L42.6416667,93.2166667 L48.5916667,99.1666667 L54.5416667,93.2166667 L60.4916667,99.1666667 L66.4416667,93.2166667 L72.3916667,99.1666667 L78.3416667,93.2166667 L84.2916667,99.1666667 L90.2416667,93.2166667 L96.1916667,99.1666667 L96.1916667,19.8333333 L90.2416667,25.7833333 L84.2916667,19.8333333 L78.3416667,25.7833333 L72.3916667,19.8333333 L66.4416667,25.7833333 L60.4916667,19.8333333 L54.5416667,25.7833333 L48.5916667,19.8333333 L42.6416667,25.7833333 L36.6916667,19.8333333 L30.7416667,25.7833333 L24.7916667,19.8333333 L24.7916667,99.1666667 Z" id="path-1"></path>
+        <path d="M19.487,6.5 C12.311,6.5 6.5,12.324 6.5,19.5 C6.5,26.676 12.311,32.5 19.487,32.5 C26.676,32.5 32.5,26.676 32.5,19.5 C32.5,12.324 26.676,6.5 19.487,6.5 Z M19.5,29.9 C13.754,29.9 9.1,25.246 9.1,19.5 C9.1,13.754 13.754,9.1 19.5,9.1 C25.246,9.1 29.9,13.754 29.9,19.5 C29.9,25.246 25.246,29.9 19.5,29.9 Z M24.05,18.2 C25.129,18.2 26,17.329 26,16.25 C26,15.171 25.129,14.3 24.05,14.3 C22.971,14.3 22.1,15.171 22.1,16.25 C22.1,17.329 22.971,18.2 24.05,18.2 Z M14.95,18.2 C16.029,18.2 16.9,17.329 16.9,16.25 C16.9,15.171 16.029,14.3 14.95,14.3 C13.871,14.3 13,15.171 13,16.25 C13,17.329 13.871,18.2 14.95,18.2 Z M19.5,22.1 C16.471,22.1 13.897,23.998 12.857,26.65 L26.143,26.65 C25.103,23.998 22.529,22.1 19.5,22.1 Z" id="path-3"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PAT_Consulta_Empity_State" transform="translate(-254.000000, -187.000000)">
+            <g id="empity_state" transform="translate(215.000000, 168.000000)">
+                <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(99.000000, 0.000000)">
+                    <g id="Elementos/icons/action/receipt_24px" opacity="0.549572173">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="ic_receipt_24px" fill="#BDBDBD" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <circle id="Oval" fill="#FFFFFF" cx="94.5" cy="94.5" r="15.5"></circle>
+                    <g id="Elementos/icons/social/mood_bad_24px" opacity="0.665201823" transform="translate(75.000000, 75.000000)">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="ic_mood_bad_24px" fill="#BDBDBD" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    </g>
+                </g>
+                <text id="Texto" opacity="0.45328776" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" line-spacing="24" letter-spacing="0.5" fill="#414141">
+                    <tspan x="38.61" y="135">No tienes productos registrados</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

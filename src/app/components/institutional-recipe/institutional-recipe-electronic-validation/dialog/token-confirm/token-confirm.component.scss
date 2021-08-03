@@ -1,0 +1,36 @@
+.validation{
+    .subtitle{
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        line-height: 24px;
+    }
+    .title{
+        font-size: 19px;
+        letter-spacing: 0.26px;
+        line-height: 22px;
+        font-weight: bold;
+    }
+    .bold{
+        font-weight: bold;
+    }
+    .mat-button{
+        width: 12rem;
+        height: 40px;
+    }
+    .mat-form{
+        // width: 22.5rem;
+        font-size: 12px;
+    }
+    .amount{
+        font-size: 14px;
+    }
+    .amount.title{
+        font-size: 15px;
+    }
+    .amount.header{
+        background-color: #f6f6f6;
+    }
+    .icon-money{
+        width: 19px;
+    }
+}

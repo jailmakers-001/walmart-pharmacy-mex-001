@@ -1,0 +1,35 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="closeDialog()">
+    close
+</mat-icon>
+<div class="text-center d-flex justify-content-center align-items-center batch-expiration">
+    <div class="a">
+        <h3 class="title mb-0" color="primary">Nota de Transferencia</h3>
+        <p class="subtitle">Selecciona las fechas para realizar la descarga del documento. 
+            <span class="font-weight-bold">Este reporte solo aplica hasta por 31 días</span> 
+            y puedes realizar múltiples descargas con diferentes fechas.
+        </p>
+
+        <app-date-range-inline 
+            [minDate]="minDate" 
+            [maxDate]="maxDate" 
+            (rangeChange)="onInlineRangeChange($event)">
+        </app-date-range-inline>
+
+        <div class="col-md-8 offset-md-2 d-flex justify-content-around align-items-center date-range-inline">
+            <div class="form">
+                <p>Desde</p>
+                <p class="range-text mb-0 font-weight-bold">{{ inlineRange | datePickerRange:'begin' }}</p>
+            </div>
+            <div class="to">
+                <p>Hasta</p>
+                <p class="range-text mb-0 font-weight-bold">{{ inlineRange | datePickerRange:'end' }}</p>
+            </div>
+        </div>
+
+        <button (click)="downloadReport()" mat-flat-button color="primary"
+            [disabled]="!inlineRange || rangeExcededError"
+            class="download">
+            Descargar Reporte
+        </button>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<app-spinner-loader></app-spinner-loader>
+<app-header *ngIf="app.store"></app-header>
+<div 
+    *ngIf="app.store"
+    class="container-size">
+    <router-outlet></router-outlet>
+</div>
+<app-determinant *ngIf="!app.store"></app-determinant>
+<app-footer *ngIf="app.store"></app-footer>

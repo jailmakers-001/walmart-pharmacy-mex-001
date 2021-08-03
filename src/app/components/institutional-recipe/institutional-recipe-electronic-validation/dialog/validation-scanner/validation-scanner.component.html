@@ -1,0 +1,91 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="openPauseProcessDialog()">
+    close
+</mat-icon>
+<div class="container validation-scanner">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-center mt-4">
+                <img [src]="stepper4">
+            </div>
+            <p class="d-flex justify-content-center mt-4 title" color="primary">
+                Sistema de Valicación Electrónica
+            </p>
+        </div>
+    </div>
+    <div [ngSwitch]="data.scannerStatus">
+        <div *ngSwitchCase="'scanner'">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="d-flex justify-content-center subtitle mb-3 mt-3">
+                        <span>
+                            Escanea el ticket del surtido de los medicamentos o ingresa los dígitos haciendo clic en el botón de
+                            “Captura el ticket
+                            manualmente”
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-2 mb-2">
+                <app-scanner-animation></app-scanner-animation>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center mt-4">
+                        <button 
+                            mat-stroked-button color="primary" 
+                            (click)="toggleScannerStatus()" class="btn scanner">
+                            Captura el ticket manualmente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="'manual'">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="d-flex justify-content-center subtitle mb-3 mt-3">
+                        <span>
+                            Ingresa los dígitos del ticket en los siguientes campos y al finalizar, haz clic en el botón de "Capturar ticket”.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-12" [formGroup]="manualTicketForm">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <mat-form-field class="mat-form">
+                            <mat-label>Ingresa el número de ticket</mat-label>
+                            <input 
+                                formControlName="ticket" 
+                                matInput 
+                                class="mat-input" 
+                                autocomplete="off"
+                                mask="0*"
+                                [maxlength]="ticketScannerMaxLength">
+                        </mat-form-field>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <mat-form-field class="mat-form">
+                            <mat-label>Confirma el número de ticket</mat-label>
+                            <input 
+                                formControlName="ticketConfirm" 
+                                matInput 
+                                class="mat-input" 
+                                autocomplete="off"
+                                mask="0*"
+                                [maxlength]="ticketScannerMaxLength">
+                        </mat-form-field>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button mat-stroked-button class="mat-button mr-2" color="primary"
+                            (click)="toggleScannerStatus()">
+                            <span class="d-flex justify-content-center align-items-center">
+                                <mat-icon class="mr-1">keyboard_backspace</mat-icon> Regresar al escáner
+                            </span>
+                        </button>
+                        <button mat-flat-button color="primary" class="mat-button ml-2" [disabled]="manualTicketForm.invalid"
+                            (click)="validateTicket()">Capturar ticket</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="closeDialog()">
+    close
+</mat-icon>
+<div class="container details h-100 w-100">
+    <div class="row h-100">
+        <div class="col-md-8 h-100 scrollbale-column">
+            <div [ngSwitch]="currentTab">
+                <div *ngSwitchCase="1">
+                    <app-general-de-salud-general-information></app-general-de-salud-general-information>
+                </div>
+                <div *ngSwitchCase="2">
+                    <app-general-de-salud-credentials></app-general-de-salud-credentials>
+                </div>
+                <div *ngSwitchCase="3">
+                    <app-general-de-salud-current-prescription-format></app-general-de-salud-current-prescription-format>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 controls">
+            <p color="primary" class="subtitle mb-2 mt-2">Autorización</p>
+            <p>(01800) 4000437</p>
+            <app-institutional-recipe-details-controls 
+                [pageOptions-param]="pageOptions"
+                (currentTab-param)="currentTab = $event"
+                [enableControls-param]="false">
+            </app-institutional-recipe-details-controls>
+        </div>
+    </div>
+</div>

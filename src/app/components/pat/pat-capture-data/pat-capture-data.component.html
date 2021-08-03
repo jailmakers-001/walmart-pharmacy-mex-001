@@ -1,0 +1,152 @@
+<mat-icon 
+  color="primary" 
+  mat-icon-dialog-close 
+  (click)="openPatCancelRegistryDialog()">
+  close
+</mat-icon>
+<div class="container h-100 p-0">
+    <div class="row m-0 h-100">
+      <div class="col-2 m-0 side-color d-flex justify-content-center align-items-start">
+      </div>
+      <div class="col-10 mt-4">
+        <div class="row pl-5 pr-5 mb-4 d-flex justify-content-center">
+          <img class="progress-img" src="{{ patStepDeterminant }}">
+        </div>
+        <h4 class="mt-4 mb-2 title">Captura de información</h4>
+        <p class="subtitle mt-1 mb-1">Solicita al cliente la siguiente información e insertalo en el campo correspondiente.</p>
+        <form class="mt-3" [formGroup]="dataCaptureForm">
+          <div class="row">
+            <div class="col">
+              <mat-form-field 
+                class="field-input">
+                <mat-label>Nombres (Obligatorio)</mat-label>
+                <input
+                  name="firstName"
+                  formControlName="firstNameField"
+                  type="text"
+                  autocomplete="off" 
+                  matInput>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field 
+                class="field-input">
+                <mat-label>Apellido Paterno (Obligatorio)</mat-label>
+                <input
+                  formControlName="lastNameField" 
+                  name="lastName" 
+                  type="text" 
+                  autocomplete="off"  
+                  matInput>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field 
+                class="field-input">
+                <mat-label>Apellido Materno (Opcional)</mat-label>
+                <input 
+                  formControlName="motherLastNameField" 
+                  name="lastName" 
+                  type="text" 
+                  autocomplete="off" 
+                  matInput>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field 
+                class="field-input">
+                <mat-label>Número celular</mat-label>
+                <input
+                  name="phone"
+                  formControlName="phoneField" 
+                  type="tel"
+                  autocomplete="off"
+                  mask="00-00-00-00-00" 
+                  matInput>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field 
+                class="field-input">
+                <mat-label>Correo electrónico (Opcional)</mat-label>
+                <input 
+                  name="email" 
+                  formControlName="emailField" 
+                  type="email" 
+                  autocomplete="off" 
+                  matInput>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field 
+                class="field-input">
+                <mat-label>Año de nacimiento (Obligatorio)</mat-label>
+                <input 
+                  name="birthYear" 
+                  formControlName="birthYearField" 
+                  type="text" 
+                  autocomplete="off" 
+                  mask="0000"  
+                  matInput>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field 
+                class="field-input">
+                <mat-label>Código postal (Obligatorio)</mat-label>
+                <input 
+                  name="postalCode" 
+                  formControlName="postalCodeField" 
+                  type="text" 
+                  autocomplete="off" 
+                  mask="00000" 
+                  matInput>
+              </mat-form-field>
+            </div>
+            <div class="col d-flex align-items-center">
+              <section class="example-section">
+                <mat-checkbox 
+                  formControlName="checkField" 
+                  class="example-margin text-dark"
+                  color="primary">
+                  Cliente desea recibir notificaciones
+                </mat-checkbox>
+              </section>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-4 pl-3 d-flex align-items-center p-0">
+              <p 
+                class="m-0 finish-later"
+                (click)="openPatFinishLaterDialog()">
+                Finalizar registro después
+                <mat-icon class="finish-later button" svgIcon="dialpad">
+                </mat-icon>
+              </p>
+            </div>
+            <div class="col-md-6 offset-md-1 d-flex align-items-center justify-content-between">
+              <button 
+                class="rounded-0 validate-btn" 
+                mat-stroked-button 
+                color="primary" 
+                (click)="openPatCancelRegistryDialog()">
+                Cancelar
+              </button>
+              <button 
+                class="rounded-0 validate-btn" mat-flat-button color="primary" 
+                [disabled]="dataCaptureForm.invalid"
+                (click)="clienteSave()">
+                Validar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

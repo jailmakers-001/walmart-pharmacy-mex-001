@@ -1,0 +1,81 @@
+<div
+    *ngIf="orders.spokes.length; else noOrders;" 
+    class="spoke-hub px-10 mt-3 mb-5 {{currentTheme}}">
+
+    <div class="row mt-5 mb-4">
+        <div class="col-md-6">
+            <p class="title mb-1">Surtido de pedidos para <strong>HUB y Spoke</strong></p>
+            <p class="title mb-0 d-flex align-items-center">
+                <mat-icon 
+                    class="ml-2 mr-2"
+                    color="primary">home</mat-icon>
+                HUB <strong class="ml-1">{{orders?.hubNum}}</strong>
+            </p>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end">
+            <div class="a ">
+                <p class="title mb-1">Fecha de actualización</p>
+                <p class="title mb-0 d-flex justify-content-end" color="primary">
+                    <strong> 
+                        {{lastUpdate  | date: 'dd/MM/yyyy'}}
+                        {{lastUpdate  | date: 'hh:mm a'}}
+                    </strong>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-tab-group backgroundColor="primary">
+                <mat-tab *ngFor="let spoke of orders?.spokes" [label]="spoke.spokeNum">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr class="table-title">
+                                <th scope="col">UPC</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Temperatura</th>
+                                <th scope="col">Pick final</th>
+                                <th scope="col">Existencia en HUB</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let medicine of spoke.medicines">
+                                <td scope="row">{{medicine.upc}}</td>
+                                <td>{{medicine.itemDesc}}</td>
+                                <td>{{medicine.temperature}}</td>
+                                <td>{{medicine.finalPick}}</td>
+                                <td>{{medicine.ohHub}}</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <td>TOTAL</td>
+                                <td>{{finalPickTotal(spoke.medicines)}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="row d-none d-md-none d-lg-block">
+        <div class="col text-right">
+            <button 
+                mat-flat-button 
+                color="primary" 
+                (click)="download()"
+                class="download">
+                <mat-icon class="icon">arrow_downward</mat-icon> 
+                Descargar los pedidos
+            </button>
+        </div>
+    </div>
+</div>
+<ng-template #noOrders>
+    <div class="container">
+        <div class="row my-5 py-5">
+            <img class="d-block mx-auto" src="assets/img/spoke-hub/empty_state.png">
+        </div>
+    </div>
+</ng-template>

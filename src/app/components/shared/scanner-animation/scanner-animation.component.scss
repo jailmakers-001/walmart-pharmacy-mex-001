@@ -1,0 +1,71 @@
+.cnt-animation{
+  // width: 80%;
+  height: 36px;
+  // margin: 20px auto;
+  position: relative;
+  display: inline-flex;
+}
+ .dot-anim{
+  width: 40%;
+  height: 33px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+ .dot, .dot-2{
+  width: 7px;
+  height: 7px;
+  background:#1A75CF;
+  opacity: .5;
+  margin: 0 12px;
+  border-radius: 15px;
+}
+ .dot{
+  animation: dot .7s ease-out infinite;
+}
+ @keyframes dot {
+  0%{
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    -o-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  75%{
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    -o-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  100%{
+    -moz-transform: translateX(30px);
+    -webkit-transform: translateX(30px);
+    -o-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+}
+.fade_out_dot{
+  animation: fade_out_dot .7s ease-out infinite;
+  opacity: .1;
+}
+@keyframes fade_out_dot{
+  0%{
+    opacity: 1;
+  }
+  25%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+.mov_left_out{
+  left: 250px !important;
+}
+h1{
+  font-weight: lighter;
+  margin-top: 20px;
+}

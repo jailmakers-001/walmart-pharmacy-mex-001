@@ -1,0 +1,39 @@
+<pagination-template #p="paginationApi" (pageChange)="onPageChange($event)">
+<div class="col-md-12 d-flex justify-content-between align-items-center">
+    <p class="m-0 mr-2">
+        Registros por página
+    </p>
+    <select 
+        appBlurOnSelect
+        (change)="onItemsPerPageChange($event)">
+        <option value="30" selected>30</option>
+        <option value="45">45</option>
+        <option value="60">60</option>
+        <option value="75">75</option>
+    </select>
+    <mat-icon 
+        *ngIf="!p.isFirstPage()" (click)="p.previous()"
+        color="primary" 
+        matSuffix
+        class="ml-1 mr-1 hand-cursor">navigate_before</mat-icon>
+    <p class="m-0 ml-2 mr-2">
+        Página
+    </p>
+    <input 
+        type="text" 
+        class="form-control p-0 current-page rounded-0" 
+        value="{{ p.getCurrent() }}" 
+        disabled>
+    <p class="m-0 ml-2 mr-1">
+        de
+    </p>
+    <p class="m-0 ml-1 mr-1">
+        {{ p.getLastPage() }}
+    </p>
+    <mat-icon 
+        *ngIf="!p.isLastPage()" (click)="p.next()"
+        color="primary" 
+        matSuffix
+        class="ml-1 mr-1 hand-cursor">navigate_next</mat-icon>
+</div>
+</pagination-template>

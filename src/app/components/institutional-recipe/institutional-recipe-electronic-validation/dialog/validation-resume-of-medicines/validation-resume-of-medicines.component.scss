@@ -1,0 +1,120 @@
+.resume-of-medicines{
+    .alert-message{
+        font-size: 14px;
+    }
+    .alert-icon{
+        font-size: 20px;
+    }
+    .subtitle{
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        line-height: 24px;
+    }
+    .title{
+        font-size: 19px;
+        letter-spacing: 0.26px;
+        line-height: 22px;
+        font-weight: bold;
+    }
+    .bold{
+        font-weight: bold;
+    }
+    .mat-button{
+        width: 12rem;
+        height: 40px;
+    }
+
+    .text-elipsis{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .amount-container{
+        height: 82px;
+    }
+
+    .status.pending{
+        font-size: 9px;
+        color: #66C455;
+    }
+    .price{
+        width: 5rem !important;
+    }   
+    .name{
+        width: 18rem;     
+        height: 2.9rem;
+    }
+
+    .example-container {
+        height: 300px;
+        width: 100%;
+        max-width: 100%;
+        overflow: auto;
+    }
+
+    table {
+        width: 600px;
+    }
+
+    td.mat-column-star {
+        width: 20px;
+        padding-right: 8px;
+    }
+
+    th.mat-column-position, td.mat-column-position {
+        padding-left: 8px;
+    }   
+
+    .mat-table-sticky:first-child {
+        border-right: 1px solid #e0e0e0;
+    }
+
+    .mat-table-sticky:last-child {
+        border-left: 1px solid #e0e0e0;
+    }
+    .mat-column-stock {
+        flex: 0 0 50%;
+    }
+    .price{
+        width: 65px
+    }
+
+    .qty, .stock, .frecuency{
+        width: 1rem;
+    }
+    
+    .presentation{
+        width: 101px;
+    }
+    .duration {
+        width: 5.5rem;
+    }
+    .type{
+        width: 5rem;
+    }
+    .eancode{
+        width: 8rem;
+    }
+
+    .dateTime{
+        width: 7rem;
+    }
+    .financer{
+        width: 12rem;
+    }
+    .client{
+        width: 16rem;
+    }
+
+    .mat-row:nth-child(even){
+        background-color:#F6F6F6;
+        border-style: none;
+    }
+    .mat-header-row{
+        border-bottom: 2px solid black;
+    }
+    .mat-header-cell{
+        color: black !important;
+    }
+}

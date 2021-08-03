@@ -1,0 +1,46 @@
+<div class="recipe-details-controls">
+    <div class="example-button-row d-flex flex-column change-option">
+        <button 
+            *ngFor="let option of pageOptions[currentPage - 1]; index as i;" 
+            mat-flat-button
+            [color]="currentTab === ( option.id ) ? 'primary' : 'secondary'" 
+            (click)="changeTab( option.id )"
+            class="mt-2 mb-2 btn content">
+            <div class="d-flex justify-content-start align-items-center">
+                <i 
+                    class="mr-2 ic_material" 
+                    [attr.color]="currentTab === ( option.id ) ? '' : 'primary'">
+                    {{ option.icon }}
+                </i>
+                {{ option.title }}
+            </div>
+        </button>
+    </div>
+    <div class="example-button-row change-page d-flex justify-content-center mt-4"
+        *ngIf="enableControls">
+        <button 
+            mat-flat-button 
+            color="primary" 
+            [disabled]="currentPage == 1" 
+            (click)="changeDownPage()" 
+            class="mr-1 btn control">
+            <mat-icon
+                class="mr-1"
+                [ngClass]="{'is-disabled': currentPage == 1}">
+                expand_less
+            </mat-icon>
+        </button>
+        <button 
+            mat-flat-button 
+            color="primary" 
+            [disabled]="currentPage == (pageOptions.length)" 
+            (click)="changeUpPage()"
+            class="ml-1 btn control">
+            <mat-icon 
+                class="mr-1" 
+                [ngClass]="{'is-disabled': currentPage == (pageOptions.length)}">
+                expand_more
+            </mat-icon>
+        </button>
+    </div>
+</div>

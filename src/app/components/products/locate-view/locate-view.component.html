@@ -1,0 +1,41 @@
+<mat-icon 
+    color="primary" 
+    mat-icon-dialog-close 
+    (click)="dialogRef.close()">
+    close
+</mat-icon>
+<div class="locate container">
+    <div class="row m-4">
+        <div class="col-md-10 offset-md-1">
+            <h2 class="font-weight-bold text-center medicine-name"> {{name}}</h2>
+            <h5 class="text-center medicine-description">{{description}}</h5>
+            <table class="table table-striped">
+                <thead class="header">
+                    <tr>
+                        <th scope="col" class="text-center text-title">Tipo</th>
+                        <th scope="col" class="text-center text-title">Determinante</th>
+                        <th scope="col" class="text-center text-title">Tienda</th>
+                        <th scope="col" class="text-center text-title">Dirección</th>
+                        <th scope="col" class="text-center text-title">Cant. Disp.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let medicine of medicines">
+                        <th scope="row">
+                            <div class="d-flex justify-content-center">
+                                <img 
+                                    [src]="'assets/img/logo/determinant/mini/min-logo-'+medicine.determinantName.substring(0,2).toLowerCase()+'.png'" 
+                                    alt="Logo"
+                                    class="mini-logo">
+                            </div>
+                        </th>
+                        <td class="text-item text-center">{{medicine.determinantNumber}}</td>
+                        <td class="text-item text-center">{{medicine.determinantName}}</td>
+                        <td class="text-item text-center">{{medicine.address}}</td>
+                        <td class="text-item text-center">{{medicine.stock || 'No disponible'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

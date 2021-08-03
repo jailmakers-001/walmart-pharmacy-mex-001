@@ -1,0 +1,57 @@
+
+<mat-icon 
+    color="primary" 
+    mat-icon-dialog-close
+    (click)="closeDialog()">
+    close
+</mat-icon>
+<div class="container details h-100 w-100">
+    <div class="row h-100">
+        <div class="col-md-8 h-100 scrollbale-column">
+            <div [ngSwitch]="currentTab">
+                <div *ngSwitchCase="1">
+                    <app-axa-general-information></app-axa-general-information>
+                </div>
+                <div *ngSwitchCase="2">
+                    <app-axa-recipes-to-fill></app-axa-recipes-to-fill>
+                </div>
+                <div *ngSwitchCase="3">
+                    <app-axa-recipe-data-validation></app-axa-recipe-data-validation>
+                </div>
+                <div *ngSwitchCase="4">
+                    <app-axa-electronic-format></app-axa-electronic-format>
+                </div>
+                <div *ngSwitchCase="5">
+                    <app-axa-customer-coverage></app-axa-customer-coverage>
+                </div>
+                <div *ngSwitchCase="6">
+                    <app-axa-important-validations></app-axa-important-validations>
+                </div>
+                <div *ngSwitchCase="7">
+                    <app-axa-credentials></app-axa-credentials>
+                </div>
+                <div *ngSwitchCase="8">
+                    <app-axa-special-authorization></app-axa-special-authorization>
+                </div>
+                <div *ngSwitchCase="9">
+                    <app-axa-filling-prescription-by-institution></app-axa-filling-prescription-by-institution>
+                </div>
+                <div *ngSwitchCase="10">
+                    <app-axa-hologram-format></app-axa-hologram-format>
+                </div>
+                <div *ngSwitchCase="11">
+                    <app-axa-authorization-phones></app-axa-authorization-phones>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 controls">
+            <p color="primary" class="subtitle mt-2 mb-2">Autorización</p>
+            <p>Consultar detalles</p>
+            <app-institutional-recipe-details-controls
+                [pageOptions-param]="pageOptions"
+                (currentTab-param)="currentTab = $event"
+                [enableControls-param]="true">
+            </app-institutional-recipe-details-controls>
+        </div>
+    </div>
+</div>

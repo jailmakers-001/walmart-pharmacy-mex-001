@@ -1,0 +1,11 @@
+<div class="row tags">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-center align-items-center content mt-1 mb-2">
+            <ng-container *ngFor="let tag of tags">
+                <div class="tag faltante-origen" *ngIf="tag === tagsTypes.FaltanteOriginen">Faltante de origen</div>
+                <div class="tag super-ahorro" *ngIf="tag === tagsTypes.SuperAhorro">Super Ahorro</div>
+                <div class="tag cambio-presentacion" *ngIf="tag === tagsTypes.CambioPresentacion">Cambio de presentación</div>
+            </ng-container>
+        </div>
+    </div>
+</div>

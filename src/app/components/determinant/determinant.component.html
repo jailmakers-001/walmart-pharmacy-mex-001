@@ -1,0 +1,107 @@
+<div class="container-fluid h-100 w-100">
+    <div class="row h-100">
+        <div class="side col-6 h-100"></div>
+        <div class="col-6 align-self-center">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h3 class="title-welcome">Bienvenido a:</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <img class="logo" src="assets/img/logo/SIF_inicio.svg">
+                </div>
+            </div>
+            <ng-template [ngIf]="!makeAsk" [ngIfElse]="makingAsk">
+                <div class="row justify-content-center">
+                    <div class="col-8 text-center">
+                        <mat-form-field class="determinant-input">
+                            <mat-label>Ingresa el número de determinante</mat-label>
+                            <input type="text" mask="0000" [matAutocomplete]="auto" matInput
+                                (input)="searchStore($event.target.value)" maxlength="4">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let det of searchDets" [value]="det.storeNumber"
+                                    (onSelectionChange)="setStore(det)">
+                                    {{det.name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                            <mat-icon color="primary" matSuffix>home</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template #makingAsk>
+                <ng-template [ngIf]="haveLicence" [ngIfElse]="noLicence">
+                    <div class="row mb-3 justify-content-center ">
+                        <div class="col-md-8 text-center">
+                            <p class="mb-5">
+                                ¿Cuenta con licencia sanitaria/aviso de funcionamiento (según aplique) y aviso de
+                                responsable sanitario en original o
+                                copia certificada?
+                            </p>
+                            <div class="btn-group d-flex justify-content-between">
+                                <div class="col-md-6">
+                                    <button class="w-100" mat-flat-button color="primary" (click)="licence(true)">Si</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="w-100" mat-stroked-button color="primary" (click)="licence(false)">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template #noLicence>
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <h3 class="subtitle mb-4">Reporta que no se cuenta con licencia sanitaria</h3>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-8 text-center">
+                            <form #reportNoLicence="ngForm" autocomplete="off">
+                                <mat-form-field>
+                                    <mat-label>Determinante</mat-label>
+                                    <input [ngModel]="store.storeNumber" name="determinant" matInput required readonly>
+                                    <mat-icon matSuffix class="subfix-icon">home</mat-icon>
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <mat-label>Usuario que reporta</mat-label>
+                                    <input ngModel name="user" matInput required>
+                                    <mat-icon matSuffix class="subfix-icon active">person</mat-icon>
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <mat-label>Fecha</mat-label>
+                                    <input [ngModel]="today" name="date" matInput [matDatepicker]="picker" required
+                                        readonly>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                    <mat-icon matSuffix class="subfix-icon">calendar_today</mat-icon>
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <mat-label>Indica el motivo por el cual no se tiene licencia sanitaría</mat-label>
+                                    <textarea name="reason" ngModel #comentario maxlength="250" matInput
+                                        required></textarea>
+                                    <mat-hint align="end">{{ comentario.value.length }} / 250</mat-hint>
+                                </mat-form-field>
+                            </form>
+                            <div class="row justify-content-center mt-3">
+                                <div class="col text-center">
+                                    <button class="w-100" mat-stroked-button color="primary"
+                                        (click)="haveLicence = true">Cancelar</button>
+                                </div>
+                                <div class="col text-center">
+                                    <button class="w-100" mat-flat-button color="primary"
+                                        [disabled]="reportNoLicence.invalid"
+                                        (click)="report(reportNoLicence.value)">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ng-template>
+        </div>
+    </div>
+</div>

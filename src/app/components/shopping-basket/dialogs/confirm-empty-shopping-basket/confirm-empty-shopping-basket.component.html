@@ -1,0 +1,26 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="dialogRef.close()">close</mat-icon>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <h3 color="primary" class="title-dialog mb-2">Eliminar todos los productos</h3>
+                <p class="text-left subtitle-dialog d-flex justify-content-center mb-1">
+                    ¿Estás seguro de querer eliminar todos los productos?
+                </p>
+                <div class="d-flex justify-content-around">
+                    <button 
+                        class="m-3 dialog" 
+                        mat-stroked-button 
+                        color="primary" 
+                        (click)="closeDialog()"
+                        id="c-empty-sb">
+                        Cancelar
+                    </button>
+                    <button class="m-3 dialog" mat-flat-button color="primary" (click)="emptyShoppingBasket()">
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

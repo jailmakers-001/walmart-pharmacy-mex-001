@@ -1,0 +1,25 @@
+button{
+    border-radius: 0;
+    height: 56px;
+    margin: 0 10px;
+}
+.grey300{
+    border: #d1d1d1 solid 0.5px;
+}
+.button-header{
+    width: 120px;
+    height: 40px;
+}
+.suggested{
+    color: black;
+}
+.hand-cursor{
+    cursor: pointer;
+}
+.visibility{
+    z-index: 20;
+}
+.did-you-mean.alert{
+    background: #DBEBFA;
+    border:none;
+}

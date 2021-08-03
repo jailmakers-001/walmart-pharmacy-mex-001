@@ -1,0 +1,14 @@
+{
+    "/sif-rest/*": {
+      "target": "https://cerr200128.mx.wal-mart.com:3443",
+      "secure": false,
+      "logLevel": "silent",
+      "changeOrigin": false
+    },
+    "/pharma_data/*": {
+      "target": "https://cerr200128.mx.wal-mart.com/",
+      "secure": false,
+      "logLevel": "silent",
+      "changeOrigin": false
+    }
+  }

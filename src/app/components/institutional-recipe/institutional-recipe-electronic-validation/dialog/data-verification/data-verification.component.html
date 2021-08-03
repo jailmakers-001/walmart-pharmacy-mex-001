@@ -1,0 +1,67 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="openPauseProcessDialog()">
+    close
+</mat-icon>
+<div class="container data-verification">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-center mt-4">
+                <img [src]="stepper2">
+            </div>
+            <p class="d-flex justify-content-center mt-5 title" color="primary">
+                Sistema de Valicación Electrónica
+            </p>
+            <p class="d-flex justify-content-center mt-4 subtitle">
+                Verifica que la información sea correcta antes de continuar. Una vez confirmada da clic en continuar.
+            </p>
+            
+        </div>
+    </div>
+    <div class="row"
+        [formGroup]="dataVerificationForm">
+        <div class="col-md-10 offset-md-1 d-flex justify-content-between mt-2 no-selection">
+            <mat-form-field class="field-input">
+                <mat-label>Folio</mat-label>
+                <input formControlName="ticket" type="text" autocomplete="off" matInput readonly>
+            </mat-form-field>
+            <mat-form-field class="field-input">
+                <mat-label>Fecha de prescripción</mat-label>
+                <input formControlName="prescriptionDate" type="text" autocomplete="off" matInput readonly>
+            </mat-form-field>
+            <mat-form-field class="field-input">
+                <mat-label>Estatus del folio</mat-label>
+                <input formControlName="ticketStatus" type="text" autocomplete="off" matInput readonly>
+                <mat-icon matSuffix class="valid">check_circle</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-10 offset-md-1 d-flex justify-content-between mt-2 no-selection">
+            <mat-form-field class="field-input">
+                <mat-label>Financiador</mat-label>
+                <input formControlName="funder" type="text" autocomplete="off" matInput readonly>
+            </mat-form-field>
+            <mat-form-field class="field-input">
+                <mat-label>Cliente / Contratante</mat-label>
+                <input formControlName="client" type="text" autocomplete="off" matInput readonly>
+            </mat-form-field>
+            <mat-form-field class="field-input">
+                <mat-label>Póliza</mat-label>
+                <input formControlName="policy" type="text" autocomplete="off" matInput readonly>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4 offset-md-1 d-flex mt-2 no-selection">
+            <mat-form-field class="field-input">
+                <mat-label>Número de referencia</mat-label>
+                <input formControlName="referenceNumber" type="text" autocomplete="off" matInput readonly>
+            </mat-form-field>
+        </div>
+        <div class="col-md-11">
+            <div class="d-flex justify-content-end">
+                <button 
+                    mat-flat-button 
+                    color="primary" 
+                    class="mat-button continue" 
+                    (click)="openResumeOfMedicinesDialog()">
+                    Continuar</button>
+            </div>
+        </div>
+    </div>
+</div>

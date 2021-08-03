@@ -1,0 +1,135 @@
+<ng-template [ngIf]="!dataRegister" [ngIfElse]="assistance">
+    <div *ngIf="loading" class="row loading align-items-center justify-content-center">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div [hidden]="loading">
+        <div class="close-register">
+            <mat-icon color="primary" 
+            mat-icon-dialog-close 
+            (click)="closeDialog()"
+            class="btn m-0 p-0">
+            close
+        </mat-icon>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="title">Ingresa tu usuario y contraseña para registrar tus entradas y salidas</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form #registerForm="ngForm">
+                    <mat-form-field class="input-data">
+                        <mat-label>Ingresa tu usuario</mat-label>
+                        <input 
+                            name="userName" 
+                            ngModel 
+                            matInput 
+                            autocomplete="off" 
+                            required>
+                        <mat-icon matSuffix color="primary">person</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field class="input-data">
+                        <mat-label>Ingresa tu contraseña</mat-label>
+                        <input 
+                            name="pUser" 
+                            type="password" 
+                            ngModel 
+                            matInput 
+                            autocomplete="off" 
+                            required>
+                        <mat-icon matSuffix color="primary">lock</mat-icon>
+                    </mat-form-field>
+                    <button 
+                        class="w-100"
+                        mat-flat-button
+                        color="primary"
+                        [disabled]="registerForm.invalid" 
+                        (click)="validate(registerForm)">Iniciar Sesión</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</ng-template>
+<ng-template #assistance>
+    <mat-icon color="primary" mat-icon-dialog-close (click)="closeDialog()">close</mat-icon>
+    <div class="d-flex flex-row justify-content-around header pt-2 pb-2 ">
+        <div class="d-flex flex-column align-items-center align-self-center">
+            <mat-icon class="h-100 header-icon" color="primary">account_box</mat-icon>
+            <!-- <h2 class="m-0">
+            </h2> -->
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <h6 class="hour-title m-0">Hora</h6>
+            <h2 class="dates m-0">
+                <span class="hour">
+                    {{ hourNow | date:'HH:mm' }}
+                </span>
+            </h2>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <h6 class="date-title m-0">Fecha</h6>
+            <h2 class="dates m-0">
+                <span class="date">{{date | date:'dd/MM/yyyy'}}</span>
+            </h2>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <h4 class="row m-0 welcome" style="color: #767676;">Bienvenido</h4>
+            <h2 class="row m-0 medical-name mt-0 mb-0">{{dataRegister.completeName}}</h2>
+            <h4 class="row mb-3 history">Historial de actividades</h4>
+        </div>
+    </div>
+    <div *ngFor="let activity of dataRegisterActivities; index as i; even as isEven" 
+        class="row medics in-check d-flex flex-column justify-content-center"
+        [ngClass]="{'isEven': isEven}">
+        <div class="mb-2 mt-2 d-flex align-items-center">
+            <div class="ml-3 d-flex justify-content-start">
+                <h4 class="row mt-1 mb-1">{{hourRules[i].actityName}}</h4>
+            </div>
+            <div class="col d-flex justify-content-end pr-2">
+                <h4 color="primary" class="mb-0">{{activity.date | date: 'HH:mm'}}</h4>
+                <mat-icon class="check pl-2 pt-1">check</mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <div *ngFor="let hour of hourRules; index as i; even as isEven">
+        <div *ngIf="dataRegisterSize + i < maxActivityNumberToRegister"
+            class="row in-check d-flex flex-column">
+            <div class="mb-2 mt-2 d-flex align-items-center">
+                <div class="ml-3 d-flex justify-content-start">
+                    <h4 class="row mt-1 mb-1 text-disabled">{{hourRules[dataRegisterSize + i].actityName}}</h4>
+                </div>
+                <div class="col d-flex justify-content-end pr-2">
+                    <h4 color="primary" class="mb-0 text-disabled">--:--</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row mt-4">
+        <div class="col">
+            <button
+                class="w-100 action-btn"
+                tabindex="-1"
+                mat-stroked-button
+                color="primary"
+                mat-dialog-close>Cerrar</button>
+        </div>
+        <div class="col">
+            <button 
+                class="w-100 action-btn" 
+                tabindex="0" 
+                mat-flat-button 
+                color="primary" 
+                [disabled]="currentActivityRegistryDisable || currentRegisteredActivities == maxActivityNumberToRegister" 
+                (click)="registerAcvitity()">Registrar</button>
+        </div>
+    </div>
+</ng-template>

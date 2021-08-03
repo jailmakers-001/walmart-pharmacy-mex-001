@@ -1,0 +1,83 @@
+.list-view{
+  tbody {
+    // .laboratory {
+    //     white-space: nowrap;
+    //     overflow: hidden;
+    //   }
+    td {
+      vertical-align: middle;
+    }
+    .buttons {
+      min-width: 300px;
+    }
+    .description {
+      line-height: 1.5em;
+      height: 3em;
+      overflow: hidden;
+    }
+    img {
+      max-width: 56px;
+      max-height: 56px;
+    }
+    .mat-flat-button {
+      width: 56px;
+      height: 56px;
+      border-radius: 0;
+    }
+  }
+  .row-items{
+    background-color: #F6F6F6;
+    width: 1128px;
+  }
+  .table-header-products-container{
+    width: 1128px;
+    color: white;
+    height: 40px;
+  }
+  .img-item{
+    width: 56px;
+    height: 56px;
+  }
+  .deny-product{
+    background-color: #e95c5d;
+  }
+  .locate-product{
+    background-color: #66c455;
+  }
+  .add-to-card{
+    background-color: #F47B20;
+  }
+  .item-text{
+    font-size: 12px;
+    color: #414141;
+  }
+  .item-text.price{
+    font-size: 18px;
+  }
+  .mat-flat-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 0;
+  }
+  .tiled-button{
+    min-width: 56px !important;
+    height: 56px !important;
+  }
+  .button-disabled{
+    background-color: #bdbdbd;
+    color: white !important;
+  }
+  .isEven{
+    background-color: #F6F6F6;
+  }
+  .action-button-label{
+    font-size: 10px !important;
+  }
+  .action-button-icon{
+    font-size: 16px !important;
+  }
+  .stripped-table{
+    background-color: #F6F6F6;
+  }
+
+}

@@ -1,0 +1,163 @@
+<div class="container-fluid {{currentTheme}}">
+    <div class="row app-header px-10 grey300 visibility">
+        <div class="col my-2">
+            <div class="d-flex flex-row align-items-center mt-2">
+                <app-logo-header></app-logo-header>
+                <div class="col-8 text-center">
+                    <form #searchForm="ngForm" [formGroup]="searchFormHeader" (ngSubmit)="searchByParam()">
+                        <mat-form-field class="text-center p-0">
+                            <mat-label>
+                                Escribe el nombre del producto, UPC, laboratorio o sustancia
+                            </mat-label>
+                            <mat-icon class="border-right" matPrefix>search</mat-icon>
+                            <input 
+                                formControlName="autoCompleteField" 
+                                type="text" 
+                                matInput
+                                maxlength="100" 
+                                [matAutocomplete]="auto"
+                                #trigger="matAutocompleteTrigger">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let item of autoComplete$ | async" [value]="item.name"
+                                    (onSelectionChange)="selectItem(item)">
+                                    {{ item.name | titlecase}}
+                                </mat-option>
+                            </mat-autocomplete>
+                            <mat-icon 
+                                *ngIf="!isLoading; else loading" 
+                                class="border-left header-icon" 
+                                matSuffix>
+                                center_focus_weak
+                            </mat-icon>
+                            <ng-template #loading>
+                                <mat-spinner matSuffix [diameter]="25"></mat-spinner>
+                            </ng-template>
+                        </mat-form-field>
+                    </form>
+                </div>
+                <div class="col-2 pl-1 pr-1 pb-3 text-center">
+                    <!-- <button routerLink="/localizador" class="mx-2" mat-mini-fab>
+                        <mat-icon color="primary">location_on</mat-icon>
+                    </button> -->
+                    <button 
+                        color="white"
+                        routerLink="/promociones"
+                        class="mx-2 custom-shadow promotions" 
+                        routerLinkActive="promotions-btn-active"
+                        mat-mini-fab>
+                        <mat-icon 
+                            class="d-flex justify-content-center promotions" 
+                            color="primary" 
+                            svgIcon="promotions"
+                            routerLinkActive="active">
+                        </mat-icon>
+                    </button>
+                    <button 
+                        color="white" 
+                        (click)="openRegister($event)" 
+                        class="mx-2 custom-shadow" 
+                        mat-mini-fab
+                        [ngClass]="{'medics-btn-active': medicsRegistryIsActive}">
+                        <mat-icon 
+                            class="d-flex justify-content-center medics" 
+                            color="primary" 
+                            svgIcon="doctor"
+                            [ngClass]="{'active': medicsRegistryIsActive}">
+                        </mat-icon>
+                    </button>
+                    <button 
+                        color="white" 
+                        class="mx-2 custom-shadow" 
+                        mat-mini-fab 
+                        routerLink="/shopping-basket"
+                        [disabled]="shoppingCartItems == 0" 
+                        [ngClass]="{'items-in-basket': shoppingCartItems >= 1}">
+                        <mat-icon 
+                            *ngIf="shoppingCartItems == 0" 
+                            class="d-flex justify-content-center" 
+                            color="primary">
+                            attach_money
+                        </mat-icon>
+                        <mat-icon 
+                            *ngIf="shoppingCartItems >= 1" 
+                            class="d-flex justify-content-center"
+                            matBadge="{{ shoppingCartItems }}" 
+                            matBadgePosition="above after" 
+                            matBadgeColor="warn">
+                            attach_money
+                        </mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div [class]="currentTheme">
+    <div class="container-fluid header-section">
+        <div class="row">
+            <div class="col pl-5 pr-5">
+                <div class="d-flex justify-content-between">
+                    <button 
+                        class="header-section-btn" 
+                        mat-flat-button 
+                        color="primary" 
+                        routerLink="/home"
+                        [routerLinkActiveOptions]="{exact:true}" 
+                        routerLinkActive="active-tab">
+                        Inicio
+                    </button>
+                    <button 
+                        class="header-section-btn" 
+                        mat-flat-button 
+                        color="primary" 
+                        routerLink="/institutional-recipe"
+                        routerLinkActive="active-tab">
+                        Receta Institucional
+                    </button>
+                    <button 
+                        class="header-section-btn" 
+                        mat-flat-button 
+                        color="primary" 
+                        routerLink="/spoke-hub"
+                        routerLinkActive="active-tab">
+                        Pedidos HUB
+                    </button>
+                    <button 
+                        class="header-section-btn" 
+                        mat-flat-button 
+                        color="primary"
+                        (click)="lazyLoadReportHealthManagerComponent()"
+                        routerLinkActive="active-tab" 
+                        skipLocationChange>
+                        Sin responsable Sanitario
+                    </button>
+                    <button 
+                        class="header-section-btn" 
+                        mat-flat-button 
+                        color="primary"
+                        (click)="lazyLoadBatchExpirationContainerComponent()"
+                        routerLinkActive="active-tab" 
+                        skipLocationChange>
+                        Nota de Transferencia
+                    </button>
+                    <button 
+                        class="header-section-btn" 
+                        mat-flat-button 
+                        color="primary" 
+                        (click)="lazyLoadPatComponent()"
+                        skipLocationChange
+                        [disabled]="!patAvailable">
+                        PAT
+                    </button>
+                    <button 
+                        class="header-section-btn" 
+                        mat-flat-button 
+                        color="primary"
+                        (click)="downloadFile()">
+                        Promociones Medimart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

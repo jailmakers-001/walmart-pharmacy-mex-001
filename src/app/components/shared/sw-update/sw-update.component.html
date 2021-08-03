@@ -1,0 +1,21 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="dialogRef.close()">close</mat-icon>
+<div class="container sw-update">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <h3 color="primary" class="title-dialog mb-2">Actualización disponible</h3>
+                <p class="text-left subtitle-dialog d-flex justify-content-center mb-1">
+                    Existe una versión de <strong class="ml-1">Sistema Integral de Farmacia</strong>.
+                </p>
+                <p class="text-left subtitle-dialog d-flex justify-content-center mb-1">
+                    Presione Aceptar para actualizar
+                </p>
+                <div class="d-flex justify-content-around">
+                    <button class="mt-2 dialog" mat-flat-button color="primary" (click)="closeDialog()">
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.promos {
+  padding: 0px 200px;
+  mat-card {
+    max-width: 265px;
+    .thumbnail {
+      max-height: 104px;
+    }
+    .description {
+      line-height: 1.5em;
+      height: 3em;
+      overflow: hidden;
+    }
+  }
+}

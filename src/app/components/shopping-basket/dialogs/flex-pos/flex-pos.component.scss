@@ -1,0 +1,87 @@
+.flex-pos {
+    .title {
+        font-size: 36px !important;
+        font-weight: 400;
+    }
+    .subtitle {
+        font-size: 24px !important;
+    }
+    .process {
+        width: 95%;
+    }
+    .item-list {
+        // use for lazy modules
+        background-image: url("../../../../../assets/img/shopping-basket/flexpos-bg.png") !important;
+        background-size: cover;
+        overflow-y: scroll;
+    }
+    .item {
+        width: 500px;
+        height: 101px;
+        background-color: #ffffff;
+    }
+    .barcode {
+        width: 573px;
+        height: 218px;
+        border: 1px;
+        border-style: dashed;
+        border-radius: 11px;
+        border-width: 2px;
+    }
+    .controls {
+        width: 182px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .ic_material {
+        font-size: 18px;
+    }
+    .shadow {
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5) !important;
+    }
+    .name {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: bold;
+    }
+    .sub,
+    .qty,
+    .price,
+    .category {
+        font-size: 12px;
+    }
+    .qty,
+    .price,
+    .category {
+        font-weight: bold;
+    }
+    .tiled {
+        background-color: #f7f7f7;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+    }
+    .name.container {
+        height: 48px;
+    }
+
+    .elipsis-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .elipsis-1 {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .product-image {
+        padding-left: 2.5rem;
+        padding-top: 0.9rem;
+    }
+}

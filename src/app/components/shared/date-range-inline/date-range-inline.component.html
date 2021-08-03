@@ -1,0 +1,11 @@
+<div class="date-range-inline">
+    <div class="inlineCalendarContainer d-flex justify-content-center mt-3 mb-3">
+        <sat-calendar 
+            [rangeMode]="true" 
+            (dateRangesChange)="onChangeRange($event)" 
+            [selected]="selectedDate"
+            [minDate]="minDate" 
+            [maxDate]="maxDate" #picker>
+        </sat-calendar>
+    </div>
+</div>

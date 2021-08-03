@@ -1,0 +1,94 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="openPatCancelRegistryDialog()">close</mat-icon>
+<div class="container h-100 p-0">
+    <div class="row m-0 h-100">
+        <div 
+            class="col-2 m-0 side-color d-flex justify-content-center align-items-start">
+            <img 
+                class="mt-4 back-button hand-cursor" 
+                src="assets/icon/back.png"
+                (click)="openPatRegistryDialog()">
+        </div>
+        <div class="col-10 mt-4">
+            <div [formGroup]="validationForm">
+                <div class="row pl-5 pr-5 mb-4 d-flex justify-content-center">
+                    <img class="progress-img" src="{{ patStepDeterminant }}">
+                </div>
+                <div class="row pl-5 pr-5">
+                    <h1 class="title mt-4">
+                        Validación de registro
+                    </h1>
+                    <h2 class="subtitle alert p-0">
+                        <span>
+                            Hemos enviado un mensaje de texto al número proporcionado por el usuario. Por favor, solicita el
+                            <span class="bold">código que recibió</span>
+                            e insertalo en el siguiente campo para completar la validación.
+                        </span>
+                    </h2>
+                    <h3 
+                        class="subtitle send-sms"
+                        (click)="checkInLocalStorageForResend()">
+                        Enviar nuevamente mensaje de Texto
+                    </h3>
+                    <mat-form-field class="sms-code">
+                        <mat-label>Introduce el código enviado al mensaje de texto</mat-label>
+                        <input 
+                            formControlName="smsCodeField"
+                            matInput 
+                            class="send-sms-input">
+                        <mat-icon 
+                            [ngClass]="{
+                                'sms-valid': smsCodeField.status === 'VALID', 
+                                'sms-invalid': smsCodeField.status === 'INVALID'}" 
+                            matSuffix>check_circle</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="row pl-5 pr-5">
+                    <div class="col p-0">
+                        <section class="example-section">
+                            <mat-checkbox 
+                                formControlName="checkField" 
+                                class="example-margin subtitle text-dark"
+                                color="primary">
+                                <span>
+                                    El cliente acepta los <span class="conditions" color="primary" (click)="openPatTermsAndConditionsDialog()">Términos y Condiciones</span> enviados previamente en
+                                    el mensaje de
+                                    texto.
+                                </span>
+                            </mat-checkbox>
+                        </section>
+                    </div>
+                </div>
+                <div class="row pl-5 pr-5 mt-5 pt-4">
+                    <div class="col-md-5 d-flex align-items-center p-0">
+                        <p 
+                            class="m-0 finish-later"
+                            (click)="openPatFinishLaterDialog()">
+                            Finalizar registro después
+                            <mat-icon 
+                                class="finish-later button" 
+                                svgIcon="dialpad">
+                            </mat-icon>
+                        </p>
+                    </div>
+                    <div class="col-md-7 d-flex align-items-center justify-content-between">
+                        <button 
+                            class="rounded-0 validate-btn" 
+                            mat-stroked-button 
+                            color="primary"
+                            (click)="openPatCancelRegistryDialog()">
+                            Cancelar
+                        </button>
+                        <button 
+                            class="rounded-0 validate-btn" 
+                            mat-flat-button 
+                            color="primary"
+                            [disabled]="validationForm.invalid"
+                            (click)="validateSmsCode()">
+                            Validar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

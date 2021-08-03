@@ -1,0 +1,27 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="closeDialog()">
+    close
+</mat-icon>
+<div class="container pause">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="d-flex justify-content-center mt-4 title" color="primary">
+                ¿Estás seguro de pausar el proceso?
+            </p>
+        </div>
+        <div class="col-md-12 mt-3">
+            <div class="d-flex justify-content-center subtitle">
+                <span class="text-center">
+                    Si detienes el proceso, comenzarás a partir de esta pantalla cuando consultes este folio
+                </span>
+            </div>
+        </div>
+        <div class="col-md-12 mt-4">
+            <div class="d-flex justify-content-center">
+                <button mat-stroked-button color="primary" class="mat-button mr-5"
+                    (click)="goBackPreviousDialog()">Cancelar</button>
+                <button mat-flat-button color="primary" class="mat-button"
+                    (click)="pause()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

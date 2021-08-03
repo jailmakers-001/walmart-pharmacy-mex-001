@@ -1,0 +1,69 @@
+@import 'theme.scss';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import './assets/css/saturn-datepicker/bundle.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+textarea { resize: none !important; }
+.spacer { flex: 1 1 auto; }
+.d-contents{ display:contents; }
+$walmart-accent: #1A75CF 100%;
+
+@font-face {
+  font-family: 'lato';
+  src: url('assets/fonts/Lato-Regular.ttf');
+}
+@font-face {
+  font-family: 'GMaterial Icons';
+  src: url('assets/fonts/MaterialIcons-Regular.woff2');
+}
+
+* {
+    font-family: 'lato';
+    
+}
+
+.ic_material{
+  font-family: 'GMaterial Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.cdk-overlay-dark-backdrop{
+  background: rgba(0, 0, 0, 1) !important;
+}
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing{
+  opacity: .6 !important;
+}
+.hand-cursor{
+  cursor: pointer;
+}
+.carousel-control-prev-icon{
+  background-image: url('assets/icon/home/chevron_left.png') !important; 
+  cursor: pointer;
+  width: 13px;
+}
+.carousel-control-next-icon{
+  background-image: url('assets/icon/home/chevron_rigth.png') !important; 
+  cursor: pointer;
+  width: 13px;
+}

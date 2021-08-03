@@ -1,0 +1,56 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="closeDialog()">
+    close
+</mat-icon>
+<div class="container consult-ticket">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-center mt-4">
+                <img [src]="stepper1">
+            </div>
+            <p class="d-flex justify-content-center mt-5 mt-5 mb-4 pb-3 title"
+                color="primary">
+                Sistema de Valicación Electrónica
+            </p>
+        </div>
+        <div class="col-md-10 offset-md-1">
+            <div class="d-flex justify-content-center subtitle">
+                <span>
+                    Bienvenido al sistema de validación de folios <span class="bold">{{ data.insurerName }}.</span> Aquí podrás consultar los medicamentos a surtir y detalles de la
+                    receta del asegurado. Para comenzar introduce el folio autorizado en el siguiente campo.
+                </span>
+            </div>
+        </div>
+        <div class="col-md-12 mt-1">
+            <div class="d-flex justify-content-center mt-4 mb-4"
+                [formGroup]="consultTicketForm">
+                <mat-form-field class="mat-form">
+                    <mat-label>Introduce el folio</mat-label>
+                    <input 
+                        formControlName="ticketIdField"
+                        matInput 
+                        class="mat-input"
+                        autocomplete="off"
+                        [maxlength]="ticketIdMaxLength">
+                </mat-form-field>
+                <button 
+                    mat-flat-button 
+                    color="primary" 
+                    class="mat-button"
+                    [disabled]="consultTicketForm.invalid"
+                    (click)="validateTicketConsult()">Consultar folio</button>
+            </div>
+        </div>
+        <div class="col-md-10 offset-md-1 border-top pt-3 mt-4"></div>
+        <div class="col-md-9 offset-md-1">
+            <span class="mt-4 mb-4 subtitle">
+                Si requieres realizar una devolución de uno o más medicamentos ya surtidos, 
+                <span 
+                    class="bold hand-cursor" 
+                    (click)="openReturnScannerDialog()"
+                    color=primary>
+                    haz clic aquí.
+                </span>
+            </span>
+        </div>
+    </div>
+</div>

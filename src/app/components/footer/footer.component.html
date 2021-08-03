@@ -1,0 +1,15 @@
+<div class="{{ currentTheme }}">
+    <div class="container-fluid">
+        <div class="row primary pt-2 pb-4">
+            <div class="col-md-1"></div>
+            <div class="col-md-3 d-flex align-items-center">
+                <img src="{{ determinantLogoFooter }}" class="logo-footer mr-1"> {{ footerDeterminantInfo }}
+            </div>
+            <div class="col-md-6"></div>
+            <div *ngIf="showWipFeatures" 
+                class="col-md-2 version-footer">
+                SIF {{version}}
+            </div>
+        </div>
+    </div>
+</div>

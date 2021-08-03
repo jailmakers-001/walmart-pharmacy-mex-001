@@ -1,0 +1,32 @@
+<mat-icon 
+    color="primary" 
+    mat-icon-dialog-close 
+    (click)="backToPreviousStep()">
+    close
+</mat-icon>
+<div class="text-center">
+    <h3 color="primary" class="title-dialog d-flex justify-content-center mb-2">
+        ¿Estas seguro de finalizar el registro después?
+    </h3>
+    <p class="subtitle-dialog d-flex justify-content-center mb-1">
+        Si detienes el proceso, comenzarás desde la ùltima actualización cuando retomes el registro
+    </p>
+    <div class="d-flex justify-content-around">
+        <div class="col">
+            <button 
+                class="m-3 dialog" 
+                mat-stroked-button color="primary" 
+                (click)="backToPreviousStep()" 
+                id="c-finish-later">
+                Cancelar
+            </button>
+            <button 
+                class="m-3 dialog" 
+                mat-flat-button 
+                color="primary" 
+                (click)="finishLater()">
+                Aceptar
+            </button>
+        </div>
+    </div>
+</div>

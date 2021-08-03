@@ -1,0 +1,158 @@
+.pat-view-list {
+  position: relative;
+  .action-buttons {
+    right: 20px;
+    position: absolute;
+    bottom: 10px;
+  }
+  .products {
+    height: 74px;
+    width: 355px;
+    border-bottom: 2px solid #eeeeee;
+    margin: 5px;
+    img {
+      max-width: 55px;
+      max-height: 55px;
+    }
+    button {
+      width: 59px;
+      min-width: 50px !important;
+      padding: 0;
+    }
+  }
+  .ca {
+    height: 135px;
+  }
+  .thumbnail {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .d-content {
+    display: contents;
+  }
+  .header {
+    background-color: #f6f6f6;
+    .user-details {
+      width: 410px;
+      margin-left: 75px;
+    }
+    span {
+      color: #1a75cf;
+    }
+  }
+  .edit-form {
+    background-color: none;
+  }
+  .row-end {
+    border-bottom: 4px solid #eeeeee;
+  }
+  .bullets {
+    display: inline-flex;
+    img {
+      width: 15px;
+    }
+  }
+  .redemption {
+    background-color: #5ec718;
+    color: white;
+    width: 3.7rem;
+    height: 2rem;
+    &:disabled{
+      background-color: rgba(0, 0, 0, 0.26);
+    }
+  }
+}
+
+.avatar{
+  width: 2rem;
+}
+.title-list{
+  font-size: 1.1rem !important;
+  font-weight: bold;
+}
+.text{
+  font-size: 0.8rem;
+}
+.edit{
+  background: white;
+}
+.subtitle{
+  color: #1A75CF;
+}
+.redeem-count{
+  font-size: 8px;
+  color: #171717;
+}
+.shadow{
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.50) !important;
+}
+.description{
+  font-size: 12px;
+  line-height: 15px;
+  height: 37px;
+}
+.upc{
+  font-size: 8px;
+  color: #414141;
+}
+.free-product{
+  font-size: 8px;
+}
+.product-card{
+  width: 21.1rem;
+  height: 5.5rem;
+}
+.img-container{
+  background-color: #F7F7F7;
+  height: 100%;
+}
+.img-form{
+  background-color: white;
+  border-radius: 50%;
+}
+.redeem-disabled{
+  background: #BDBDBD !important;
+  color: white !important;
+  cursor: initial !important;
+}
+.redeem-now{
+  color: #0F7BE5;
+  font-size: 0.5rem;
+}
+.free-product-disabled{
+  color: #B3B3B3;
+}
+.profile-data{
+  font-size: 12px;
+}
+.delete-profile{
+  width: 35px;
+  height: 35px;
+}
+.close-pat{
+  position: fixed;
+  bottom: 12vh;
+}
+.scrolling-container{
+  height: 348px;
+  overflow-y: scroll;
+}
+.border-icon{
+  border: solid 1px;
+}
+
+.pat.message{
+  background-color: #ff5b5b;
+  width: 21.1rem;
+}
+
+.pat.message > div {
+  height: 14px;
+}
+
+.pat.message > div > span{
+  font-size: 9px;
+}
+.pat.message > div > span.text-truncate{
+  max-width: 310px;
+}

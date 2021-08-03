@@ -1,0 +1,41 @@
+.data-verification{
+    .title{
+        font-size: 19px;
+        letter-spacing: 0.26px;
+        line-height: 22px;
+        font-weight: bold;
+    }
+    .subtitle{
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        line-height: 24px;
+    }
+    .field-input{
+        font-size: 14px;
+        width: 16.5rem;
+    }
+    .valid{
+        color: #61BF1A;
+    }
+    .continue{
+        width: 12rem;
+        height: 40px;
+    }
+    .copay{
+        height: 225px;
+    }
+    .no-selection{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+
+    }
+}

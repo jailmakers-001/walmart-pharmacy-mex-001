@@ -1,0 +1,26 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="closeDialog()">
+    close
+</mat-icon>
+<div class="container cancel">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="d-flex justify-content-center mt-4 title" color="primary">
+                ¿Estás seguro de cancelar el proceso?
+            </p>
+        </div>
+        <div class="col-md-12 mt-3">
+            <div class="d-flex justify-content-center subtitle">
+                <span class="text-center">
+                    Si se cancela el proceso, se tendrá que iniciar desde el comienzo y no guardará ninguna información
+                </span>
+            </div>
+        </div>
+        <div class="col-md-12 mt-4">
+            <div class="d-flex justify-content-center">
+                <button mat-stroked-button color="primary" class="mat-button mr-5"
+                    (click)="openResumeOfMedicinesDialog()">Cancelar</button>
+                <button mat-flat-button color="primary" class="mat-button" (click)="cancel()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

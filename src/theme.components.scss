@@ -1,0 +1,171 @@
+@import "~@angular/material/theming";
+@mixin sif-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  .mat-stroked-button:not([disabled]) {
+    border-color: mat-color($primary) !important;
+  }
+  
+  .mat-flat-button.mat-button-base.mat-primary:disabled{
+    color: white;
+  }
+
+  *[color="primary"] {
+    color: mat-color($primary);
+  }
+  .primary-active {
+    background-color: mat-color($primary) !important;
+  }
+  mat-icon[color="white"] {
+    g path {
+      // fill: white;
+    }
+    color: white;
+  }
+  mat-icon[color="primary"] {
+    g path {
+      // fill: mat-color($primary);
+    }
+    color: mat-color($primary);
+  }
+  button[disabled] mat-icon[color="primary"] {
+    g path {
+      fill: rgba(0, 0, 0, 0.26);
+    }
+    color: rgba(0, 0, 0, 0.26);
+  }
+  button.mat-icon-active {
+    background-color: mat-color($primary);
+    mat-icon {
+      g path {
+        fill: white;
+      }
+      color: white;
+    }
+  }
+  table.primary {
+    thead {
+      background-color: mat-color($primary);
+      color: white;
+    }
+  }
+  div.primary {
+    background-color: mat-color($primary);
+    border-color: mat-color($accent, A400);
+    color: white;
+  }
+
+  .side-color, .header-section, .add.plus{
+    background-color: mat-color($primary) !important;
+  }
+  .active-tab, .current-letter{
+    background-color: mat-color($accent) !important;
+  }
+  .side {
+    background-image: url("assets/img/pat/walmart/side-walmart.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+  }
+  // header component
+  .promotions, .medics{
+    fill: mat-color($primary);
+  }
+  .medics.active, .medics-btn-active{
+  background-color: mat-color($primary) !important;
+  fill: white !important;
+  }
+  .promotions.active, .promotions-btn-active{
+    background-color: mat-color($primary) !important;
+    fill: white !important;
+  }
+  .items-in-basket{
+    background-color: mat-color($primary) !important;
+    color: white !important;
+}
+  // header component
+  // products container
+  .table-header-products-container{
+    background-color: mat-color($primary) !important;
+  }
+  // products container
+  // *********************** report healt manager ***********************
+  // *********************** report healt manager ***********************
+  sat-month-view .mat-calendar-body-selected{
+    background-color: mat-color($primary) !important;
+    color: white;
+  }
+  // *********************** report healt manager ***********************
+  // *********************** report healt manager ***********************
+
+  // *********************** pat ***********************
+  // *********************** pat ***********************
+  .register, .pat-view-list-info, .delete-profile-title, .header-icon{
+    color: mat-color($primary) !important;
+  }
+  .side-pat {
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+  }
+  .delete-profile.border-icon{
+    border-color: mat-color($primary);
+  }
+  // *********************** pat ***********************
+  // *********************** pat ***********************
+
+  // *********************** shopping-basket ***********************
+  // *********************** shopping-basket ***********************
+  .shopping-basket.make-order-btn{
+    background-color: mat-color($accent) !important;
+    color: mat-color($primary);
+  }
+
+  .flex-pos{
+    .total{
+      background-color: mat-color($accent) !important;
+      color: mat-contrast($primary, 100) !important;
+    }
+    .barcode{
+      border-color: mat-color($primary) !important;
+    }
+  }
+  // *********************** shopping-basket ***********************
+  // *********************** shopping-basket ***********************
+}
+
+@mixin sif-background-walmart {
+  .side-pat{
+    background-image: url("assets/img/pat/walmart/side-walmart.png");
+  }
+}
+
+@mixin sif-background-superama {
+  .side-pat{
+    background-image: url("assets/img/pat/superama/side-superama.png");
+  }
+}
+
+@mixin sif-background-bodega-aurrera {
+  .side-pat{
+    background-image: url("assets/img/pat/bodega-aurrera/side-bodega-aurrera.png");
+  }
+}
+
+@mixin sif-font-aurrera{
+  button.header-section-btn.mat-flat-button.mat-button-base.mat-primary.active-tab{
+    color: black !important;
+  }
+  .current-letter.mt-1{
+    color: black !important;
+  }
+}
+
+@mixin sif-background-sams-club {
+  .side-pat{
+    background-image: url("assets/img/pat/sams-club/side-sams-club.png");
+  }
+}

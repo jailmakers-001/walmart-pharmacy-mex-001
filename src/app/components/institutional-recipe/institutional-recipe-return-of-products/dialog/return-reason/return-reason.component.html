@@ -1,0 +1,54 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="closeDialog()">
+    close
+</mat-icon>
+<div class="container return-reason"
+    [formGroup]="returnReasonForm">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="d-flex justify-content-center mt-4 title" color="primary">
+                Sistema de devolución de medicamentos
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1 mt-3">
+            <mat-form-field class="field-input" appearance="fill">
+                <mat-label>Selecciona el motivo de devolución</mat-label>
+                <mat-select color="primary"
+                    formControlName="reason">
+                    <mat-option *ngFor="let reason of reasons" 
+                        [value]="reason.value">
+                        {{reason.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <mat-form-field class="field-input" floatLabel="never">
+                <mat-label>Comentarios o información adicional (opcional)</mat-label>
+                <textarea 
+                    color="primary" 
+                    matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="4"
+                    cdkAutosizeMaxRows="4"
+                    formControlName="comment"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="d-flex justify-content-end">
+                <button mat-flat-button 
+                    color="primary" 
+                    class="mat-button" 
+                    (click)="openReturnConfirmationDialog()"
+                    [disabled]="returnReasonForm.invalid">
+                    Continuar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<mat-icon color="primary" mat-icon-dialog-close (click)="closeDialog()">close</mat-icon>
+<div class="container-fluid flex-pos h-100 w-100 d-inline-block">
+    <div class="row h-100">
+        <div class="col-md-7 pt-4">
+            <app-logo-header></app-logo-header>
+            <h2 class="title mt-3 mb-4">Pedido realizado con éxito</h2>
+            <div class="balance">
+                <div class="row m-0 border-bottom">
+                    <div class="col-md-10 p-2">
+                        TOTAL DE ARTÍCULOS
+                    </div>
+                    <div class="col-md-2 p-2">
+                        {{ data.items.length }}
+                    </div>
+                </div>
+                <div class="row m-0 border-bottom">
+                    <div class="col-md-10 p-2">
+                        SUBTOTAL:
+                    </div>
+                    <div class="col-md-2 p-2">
+                        ${{ data.shoppingBasketTotal }}
+                    </div>
+                </div>
+                <div class="row m-0 border-bottom">
+                    <div class="col-md-10 p-2">
+                        DESCUENTOS:
+                    </div>
+                    <div class="col-md-2 p-2">
+                        $0.00
+                    </div>
+                </div>    
+                <div class="row m-0 border-bottom">
+                    <div class="col-md-10 p-2">
+                        BONIFICACIÓN
+                    </div>
+                    <div class="col-md-2 p-2">
+                        $0.00
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-md-10 p-2 total">
+                        MONTO A PAGAR:
+                    </div>
+                    <div class="col-md-2 p-2 total">
+                        ${{ data.shoppingBasketTotal }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <div class="barcode mt-4 d-flex justify-content-center">
+                        <span class="text-center pl-4 pr-4 mt-4">
+                            Escanea el siguiente código desde la terminal Flex Pos para realizar el cobro final.
+                            <div class="d-flex justify-content-center align-items-center">
+                                <ngx-barcode 
+                                    [bc-value]="data.upc" 
+                                    [bc-display-value]="true" 
+                                    [bc-height]="70" 
+                                    [bc-width]="1" 
+                                    [bc-width]="2" 
+                                    [bc-format]="'UPC'"
+                                    class="mt-4 pt-2">
+                                </ngx-barcode>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-4">
+                    <div class="a d-flex justify-content-center">
+                        <button mat-raised-button color="primary" class="mr-3 controls shadow-none"
+                            (click)="closeDialog()">
+                            <i class="ic_material mr-2">arrow_back</i>
+                            Regresar al inicio
+                        </button>
+                        <button mat-stroked-button color="primary" class="ml-3 controls" (click)="printPdf()">
+                            <i class="ic_material mr-2">local_printshop</i>
+                            Imprimir código
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 item-list h-100">
+            <h2 class="subtitle mt-4 mb-3">Resumen del pedido</h2>
+            <div class="content d-flex-column justify-content-center">
+                <div *ngFor="let item of data.items" class="item-container mb-3 d-flex justify-content-center">
+                    <div class="item shadow">
+                        <div class="row d-sm-block pt-1">
+                            <div class="col-sm-9 float-right name container d-flex align-items-center">
+                                <span class="name elipsis-2">{{ item.name }}</span>
+                            </div>
+                            <div class="col-sm-3 float-left product-image">
+                                <div class="d-flex align-items-center tiled">
+                                    <img [src]="item.image" class="d-block m-auto thumbnail image img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-sm-9 float-right">
+                                <div class="row">
+                                    <div class="col-5 d-flex flex-column">
+                                        <span class="qty" color="primary">
+                                            Cantidad solicitada:
+                                        </span>
+                                        <span class="sub qty">
+                                            {{ item.qty }} pza
+                                        </span>
+                                    </div>
+                                    <div class="col-3 d-flex flex-column">
+                                        <span class="price" color="primary">
+                                            Precio:
+                                        </span>
+                                        <span class="sub price">
+                                            {{ item.price | price}}
+                                        </span>
+                                    </div>
+                                    <div class="col-3 d-flex flex-column">
+                                        <span class="category" color="primary">
+                                            Categoría:
+                                        </span>
+                                        <span class="sub category elipsis-1">
+                                            {{ item.category }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

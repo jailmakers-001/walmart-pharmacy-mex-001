@@ -1,0 +1,59 @@
+<div class="locator m-5">
+    <div class="row">
+        <div class="col text-center">
+            <h1>Buscar tienda por:</h1>
+        </div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-3">
+            <mat-form-field>
+                <mat-label>Introduce la determinante</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="col-7">
+            <mat-form-field>
+                <mat-label>Busca por código postal, delegación, municipio o dirección</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="col-2 pb-3">
+            <button class="search-btn w-100" mat-flat-button color="primary">
+                <mat-icon>search</mat-icon> Buscar
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table primary table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Determinante</th>
+                        <th scope="col">Tienda</th>
+                        <th scope="col">Dirección</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let store of nearStores">
+                        <th scope="row">
+                            <img [src]="'assets/img/min-logo-'+store.name.substring(0,2).toLowerCase()+'.png'" alt="Logo">
+                        </th>
+                        <td>{{store.storeNumber}}</td>
+                        <td>{{store.name}}</td>
+                        <td>{{store.address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <agm-map #agmMap [zoomControl]="false" [fitBounds]="latLngBounds" [maxZoom]="17" [latitude]="lat" [longitude]="lng" [streetViewControl]="false" [scrollwheel]="false" [gestureHandling]="'none'" [draggable]="false" [disableDoubleClickZoom]="true" [keyboardShortcuts]="false">
+            <agm-marker *ngFor="let store of nearStores;let i=index;" [latitude]="store.latitude" [longitude]="store.longitude">
+                <agm-info-window>
+                    <strong>{{store.name + ": " + store.address}}</strong>
+                </agm-info-window>
+            </agm-marker>
+        </agm-map>
+    </div>
+</div>

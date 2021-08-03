@@ -1,0 +1,53 @@
+<mat-icon 
+    color="primary" 
+    mat-icon-dialog-close 
+    (click)="openPatCancelRegistryDialog()">
+    close
+</mat-icon>
+<div class="container h-100 p-0">
+    <div class="row m-0 h-100">
+        <div class="col-2 m-0 side-color d-flex justify-content-center align-items-start">
+            <img 
+                class="mt-4 back-button hand-cursor" 
+                src="assets/icon/back.png"
+                (click)="backToPatContainerDialog()">
+        </div>
+        <div class="col-10 mt-4">
+            <div [formGroup]="registryForm">
+                <div class="row pl-5 pr-5 mb-4 d-flex justify-content-center">
+                    <img class="progress-img" src="{{ patStepDeterminant }}">
+                </div>
+                <div class="row pl-5 pr-5 mt-5">
+                    <img src="{{ determinantLogoPat }}" class="logo-pat">
+                </div>
+                <div class="row pl-5 pr-5">
+                    <h1 class="title mt-4">
+                        Bienvenido al Programa de lealtad PAT
+                    </h1>
+                    <h2 class="subtitle alert p-0">
+                        Para comenzar, indica el número teléfonico a 10 digitos del cliente a registrar
+                    </h2>
+                    <mat-form-field class="phone-field mt-4">
+                        <mat-label>Número celular (Obligatorio)</mat-label>
+                        <input 
+                            mask="00-00-00-00-00" 
+                            formControlName="phoneNumberField" 
+                            matInput>
+                    </mat-form-field>
+                </div>
+                <div class="row pl-5 pr-5 mt-5 pt-5">
+                    <div class="col-md-7 offset-md-5 d-flex align-items-center justify-content-between">
+                        <button class="rounded-0 validate-btn" mat-stroked-button color="primary"
+                            (click)="openPatCancelRegistryDialog()">
+                            Cancelar
+                        </button>
+                        <button class="rounded-0 validate-btn" mat-flat-button color="primary"
+                            [disabled]="registryForm.invalid" (click)="validatePhoneNumber()">
+                            Validar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container h-100">
+
+<div class="row  pat h-100">
+  <img class="logo" src="{{ determinantLogoPat }}" />
+  <mat-icon class="iconClose" (click)="closeDialog()">close</mat-icon>
+  <div class="col-7">
+    <div class="row m-0 h-100 align-items-center">
+      <div class="col">
+        <form [formGroup]="containerForm">
+          <h1 color="primary" class="title">Bienvenido</h1>
+          <strong>
+            <h5 class="subtitle">Programa de Lealtad PAT</h5>
+          </strong>
+          <small>
+            <h6 class="message">Ingresa el número celular para poder consultar el historial de compras y canje de productos.</h6>
+          </small>
+          <mat-form-field>
+            <mat-label>Introduce tu número</mat-label>
+            <input 
+              name="phone" 
+              type="tel" 
+              autocomplete="off" 
+              mask="00-00-00-00-00" 
+              formControlName="phoneNumberField"
+              matInput 
+              required>
+          </mat-form-field>
+          <button 
+            mat-flat-button 
+            class="rounded-0"
+            color="primary" 
+            [disabled]="containerForm.invalid" 
+            (click)="consultPhoneNumberStatus()">
+            Consultar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-5 side-pat h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col text-center">
+        <h2 class="title-2">Nuevo registro</h2>
+        <small>
+          <h6 class="message-2">Registra a un nuevo usuario para el Programa de Apoyo al Tratamiento (PAT).</h6>
+        </small>
+        <button 
+          type="button" 
+          class="register rounded-0"
+          (click)="openPatRegistryDialog()" 
+          mat-flat-button>
+          Registrar a usuario
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

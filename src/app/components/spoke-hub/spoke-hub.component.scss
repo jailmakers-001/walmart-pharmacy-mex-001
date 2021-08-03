@@ -1,0 +1,21 @@
+.spoke-hub {
+  .table {
+    text-align: center;
+    thead{
+        background-color: #bdbdbd;
+    }
+  }
+  .title{
+    font-size: 18px;
+  }
+  .download{
+    font-size: 14px;
+  }
+  .icon{
+    font-size: 18px;
+  }
+  .table-title, .table-title > th{
+    background-color: white;
+    font-weight: 100;
+  }
+}

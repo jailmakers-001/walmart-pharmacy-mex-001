@@ -1,0 +1,19 @@
+{
+  "name": "sif-api-client",
+  "version": "0.0.1",
+  "scripts": {
+    "prebuild": "ng-swagger-gen",
+    "build": "ng build",
+    "version": ""
+  },
+  "peerDependencies": {
+    "@angular/common": "^10.2.3",
+    "@angular/core": "^10.2.3"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "ng-swagger-gen": "^2.3.0"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js",
+          "/assets/img/**",
+          "/assets/icon/**"
+        ],
+        "urls": [
+          "**/pharma_data/img/**",
+          "https://fonts.googleapis.com/**"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "SIF Walmart promotions",
+      "urls": [
+        "/sif-rest/walmart/pat/promotions"
+      ],
+      "version": 2,
+      "cacheConfig": {
+        "maxSize": 20,
+        "maxAge": "3h",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "SIF Walmart services excluded to show error messages in production environment",
+      "urls": [
+        "/sif-rest/walmart/externalmedical/validate",
+        "/sif-rest/walmart/pharma/quickSearchPharma",
+        "/sif-rest/walmart/pharma/getProductsByBrandOrSustance",
+        "/sif-rest/walmart/textPredict/find",
+        "/sif-rest/walmart/determinant/getByNumber",
+        "/sif-rest/walmart/spokehub/info",
+        "/sif-rest/walmart/spokehub/excel",
+        "/sif-rest/walmart/fulfillment/healthOfficer",
+        "/sif-rest/walmart/wee/**"
+      ],
+      "version": 3,
+      "cacheConfig": {
+        "maxSize": 0,
+        "maxAge": "0u",
+        "strategy": "freshness"
+      }
+    }
+  ]
+}

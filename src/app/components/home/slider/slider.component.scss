@@ -1,0 +1,41 @@
+
+.slide {
+  .price{
+    position: absolute;
+    background-color: #F47B20;
+    border-radius: 50%;
+    color: white;
+    width: 54px;
+    height: 54px;
+    top: 0;
+    right: 0;
+  }
+  background-image: url("slider-background.png");
+  background-size: initial;
+  background-repeat: no-repeat;
+  height: 300px;
+  .thumbnail{
+    background-color: white;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    img{
+      width: 80%;
+      mix-blend-mode: multiply;
+    }
+  }
+  .details{
+    color: white;
+    .title, .price{
+      font-size: 40px;
+    }
+  }
+}
+
+
+.banner{
+  background-color: #f4f7fc;
+}
+.banner.slider{
+  height: 304px !important;
+}
